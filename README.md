@@ -2,37 +2,37 @@
 
 OOP described in words.
 
-# CardGame
+## CardGame
 A *CardGame* has a *Name*, a *RuleSet* and a *PlayerSet*.
 
-# Card
+## Card
 A *Card* has a *Color* and *Value*.
 
-# CardColor
+## CardColor
 
-# CardValue
+## CardValue
 
-# Hand
+## Hand
 
-# Player
+## Player
 A *Player* has a name.
 
-# Jass
+## Jass
 A *Jass* is a *CardGame*. 
 A *Jass* has a *PlayerSet* of four *Players*.
 
-# JassCard
+## JassCard
 A *JassCard* is a Card.
 A *JassCard* has a *JassColor* and a *JassValue*.
 
-# JassCardColor
+## JassCardColor
 
-# JassCardValue
+## JassCardValue
 
-# JassPlayer
+## JassPlayer
 A *JassPlayer* has a *JassHand*.
 
-# JassHand
+## JassHand
 A *JassHand* has seven or less JassCards.
 
  
