@@ -7,12 +7,11 @@ Objets are Headings and italics. Primitive-types and Enums are bold.
 # Highest Level Of Abstraction :A CardGame
 
 ### CardGame
-A *CardGame* has a **Name**, a *RuleSet*, a *PlayerSet*, a *TeamSet*, a *CardDeck*, a *GameModerator*, a *Table* and a *MoveMomento*. 
+A *CardGame* has a **Name**, a *RuleSet*, a *PlayerSet*, a *TeamSet*, a *GameModerator*, a *Table* and a *MoveMomento*. 
 
 ### Game Moderator
 A *GameModerator* interacts with *MoveScheduler*, *StatisticsKeeper*, *Umpire*, *Player*s and *Team*s. *GameModerator* demands *Players* and *Teams* to make *Move*s.  *Moves* are returned by *Players* and *Teams*. *GameModerator* demands *Scheduler* to determine who's next to make a *Move* according to the last *Move* made. *GameModerator* demands *StatisticsKeeper* to log a *Move* that was made, to report *GameStatistics*. *GameModerator* asks the *Umpire* if a *Move* complies with the *RuleSet*.
-
-A *GameModerator* shuffles and deals the *CardDeck* before the the Game starts.  
+ 
 
 
 ### RuleSet
