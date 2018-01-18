@@ -1,4 +1,9 @@
+
 # jass
+
+## Installation / Compilation
+
+gradle wrapper --gradle-version 3.3
 
 OOP described in words.
 
