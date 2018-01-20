@@ -6,7 +6,6 @@ public class JassCard implements Card{
 	
     private int color;
     private int name;
-    private int value;
     
     public enum color {
         EICHEL,
@@ -27,10 +26,9 @@ public class JassCard implements Card{
         ASS
     }
     
-    public JassCard(int name, int color, int value){
+    public JassCard(int name, int color){
         this.color = color;
         this.name = name;
-        this.value = value;
     }
     
     @Override
@@ -42,11 +40,6 @@ public class JassCard implements Card{
 	public int getName() {
 		return this.color;
 	}
-        
-    @Override
-	public int getValue() {
-		return this.value;
-	}
     
     @Override
 	public void setColor(int color) {
@@ -56,10 +49,5 @@ public class JassCard implements Card{
    @Override
 	public void setName(int name) {
 		this.name = name;
-	}  
-        
-    @Override
-	public void setValue(int value) {
-		this.value = value;
 	}  
 }
