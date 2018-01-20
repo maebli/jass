@@ -3,6 +3,7 @@ package trumpf.jass;
 import trumpf.cardgame.Card;
 
 public class JassCard implements Card{
+	
     private int color;
     private int name;
     private int value;

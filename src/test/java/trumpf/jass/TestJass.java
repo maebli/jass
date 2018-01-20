@@ -35,7 +35,6 @@ public class TestJass {
 		Collection<Player> players = playersBuilder.build();
 		Map<Player, Team> teams = teamBuilder.build(players);
 		
-		jass.addPlayers(players);
 		jass.setTeams(teams);
 
 	}

@@ -5,6 +5,7 @@ import java.util.Map;
 
 import trumpf.cardgame.CardGame;
 import trumpf.cardgame.CardGameBuilder;
+import trumpf.cardgame.GameModerator;
 import trumpf.cardgame.Player;
 import trumpf.cardgame.Rule;
 import trumpf.cardgame.Table;
@@ -14,14 +15,16 @@ import trumpf.jass.JassCard;
 public class Jass implements CardGame{
 
 	private static final String GAME_NAME = "Jass";
-
+    
+    private static Map<Player, Team> teams;
+    
+    
 	public Jass(){
-
+		
 	}
-	
 
-	
 	public void play() {
+		
 	}
 
 	@Override
@@ -30,20 +33,13 @@ public class Jass implements CardGame{
 	}
 
 
-
-	@Override
-	public void addPlayers(Collection<Player> players) {
-		// TODO Auto-generated method stub
-		
-	}
-
-
-
 	@Override
 	public void setTeams(Map<Player, Team> teams) {
-		// TODO Auto-generated method stub
-		
+        this.teams=teams;
 	}
+
+
+	
 	
 
 
