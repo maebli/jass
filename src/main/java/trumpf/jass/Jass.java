@@ -9,6 +9,7 @@ import trumpf.cardgame.Player;
 import trumpf.cardgame.Rule;
 import trumpf.cardgame.Table;
 import trumpf.cardgame.Team;
+import trumpf.jass.JassCard;
 
 public class Jass implements CardGame{
 
