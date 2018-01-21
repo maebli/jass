@@ -10,7 +10,7 @@ import trumpf.cardgame.exception.CardSetIsFullException;
 
 public class JassHand implements Hand{
 	
-	public static int JASS_HAND_SIZE = 7;
+	public static int JASS_HAND_SIZE = 9;
 	
 	private Set<Card> cards = new HashSet<Card>();
 

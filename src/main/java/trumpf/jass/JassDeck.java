@@ -42,4 +42,8 @@ public class JassDeck implements Deck{
         String out = "Rank: " + bottomCard.getRank() + " Suit: " + bottomCard.getSuit();
         return out;
     }
+
+	public boolean isNotEmpty() {
+		return !this.deck.isEmpty();
+	}
 }

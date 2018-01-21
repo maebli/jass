@@ -18,19 +18,13 @@ public class Jass implements CardGame{
     
     private static Map<Player, Team> teams;
     
-    private static JassGameModerator moderator;
-    
     
 	public Jass(){
-		
-		moderator = new JassGameModerator();
-		
-		//moderator.dealHands();
 		
 	}
 
 	public void play() {
-		
+		JassGameModerator.dealHands(teams);
 	}
 
 	@Override
