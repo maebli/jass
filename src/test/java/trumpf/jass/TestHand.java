@@ -23,11 +23,16 @@ public class TestHand {
 
 	@Test
 	public void testJassHand() throws CardSetIsFullException {
-		for(int i=0;i<7;i++){
-			Card c= new JassCard(0, 0);
+		for(int i=0;i<JassHand.JASS_HAND_SIZE;i++){
+			Card c= new JassCard(0,0);
 			jassHand.addCards(c);
 		}
 		System.out.println(jassHand);
+		try{
+			jassHand.addCards(new JassCard(0,0));
+			fail(); // hand is full
+		}catch(CardSetIsFullException e){
+		}
 	}
 
 }

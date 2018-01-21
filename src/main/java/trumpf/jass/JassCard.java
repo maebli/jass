@@ -4,17 +4,17 @@ import trumpf.cardgame.Card;
 
 public class JassCard implements Card{
 	
-    private int color;
-    private int name;
+    private int suit;
+    private int rank;
     
-    public enum color {
+    public static enum Suit {
         EICHEL,
         ROSEN,
         SCHELLEN,
         SCHILTEN
     }
     
-    public enum name {
+    public static enum Rank {
         C6,
         C7,
         C8,
@@ -26,28 +26,28 @@ public class JassCard implements Card{
         ASS
     }
     
-    public JassCard(int name, int color){
-        this.color = color;
-        this.name = name;
+    public JassCard(int suit, int rank){
+        this.suit = suit;
+        this.rank = rank;
     }
     
     @Override
-	public int getColor() {
-		return this.color;
+	public int getSuit() {
+		return this.suit;
 	}
     
     @Override
-	public int getName() {
-		return this.color;
+	public int getRank() {
+		return this.rank;
 	}
     
     @Override
-	public void setColor(int color) {
-		this.color = color;
+	public void setSuit(int suit) {
+		this.suit = suit;
 	}    
         
    @Override
-	public void setName(int name) {
-		this.name = name;
+	public void setRank(int rank) {
+		this.rank = rank;
 	}  
 }

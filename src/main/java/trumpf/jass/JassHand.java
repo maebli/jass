@@ -10,7 +10,7 @@ import trumpf.cardgame.exception.CardSetIsFullException;
 
 public class JassHand implements Hand{
 	
-	private static int JASS_HAND_SIZE = 7;
+	public static int JASS_HAND_SIZE = 7;
 	
 	private Set<Card> cards = new HashSet<Card>();
 
@@ -47,7 +47,7 @@ public class JassHand implements Hand{
 	public String toString(){
 		String cardsAsString="Cards \r\n \n";
 		for(Card card:cards){
-			cardsAsString+="Color:"+card.getColor()+"  Name:"+card.getName();
+			cardsAsString+="Suit:"+card.getSuit()+"  Rank:"+card.getRank();
 			cardsAsString+="\r\n";
 		}
 		return cardsAsString;
