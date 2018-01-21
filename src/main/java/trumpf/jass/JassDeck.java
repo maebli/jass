@@ -31,14 +31,14 @@ public class JassDeck implements Deck{
     
     public JassCard removeTopCard(){
         int lastElement = this.deck.size()-1;
-        return (JassCard)this.deck.remove(lastElement);   
+        return this.deck.remove(lastElement);   
     }
     public JassCard removeBottomCard(){
-        return (JassCard)this.deck.remove(0);   
+        return this.deck.remove(0);   
     }
     
     public String showBottomCard(){
-        JassCard bottomCard = (JassCard)this.deck.firstElement();
+        JassCard bottomCard = this.deck.firstElement();
         String out = "Rank: " + bottomCard.getRank() + " Suit: " + bottomCard.getSuit();
         return out;
     }
