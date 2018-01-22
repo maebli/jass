@@ -4,6 +4,8 @@ import java.util.HashMap;
 import java.util.Map;
 
 import trumpf.cardgame.Card;
+import trumpf.jass.JassCard.Rank;
+import trumpf.jass.JassCard.Suit;
 
 public class JassCard implements Card{
 	
@@ -59,8 +61,8 @@ public class JassCard implements Card{
         this.suit = suit;
         this.rank = rank;
     }
-    
-    @Override
+
+	@Override
 	public int getSuit() {
 		return this.suit;
 	}
@@ -83,5 +85,17 @@ public class JassCard implements Card{
    public String toString(){
 	   return suitsNames.get(suit)+" "+
 			   ranksNames.get(rank);
+   }
+   
+   @Override
+   public boolean equals(Object o) {
+	   if(getClass()==o.getClass()){
+		   JassCard card=(JassCard) o;
+		  if((this.rank == card.rank) &&
+		     (this.suit == card.suit)){
+			  return true;
+		  }
+	   }
+	   return false;
    }
 }

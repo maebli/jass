@@ -30,6 +30,7 @@ public class Jass implements CardGame{
 
 	public void play() {
 		JassGameModerator.dealHands(teams);
+		JassGameModerator.whosTurnIsIt(teams);
 	}
 
 	@Override
