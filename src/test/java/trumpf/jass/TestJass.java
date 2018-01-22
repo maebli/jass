@@ -8,6 +8,11 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
+import java.util.logging.Handler;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import java.util.logging.SimpleFormatter;
+import java.util.logging.StreamHandler;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -22,10 +27,23 @@ import trumpf.cardgame.exception.CardGameDoesNotExistException;
 
 public class TestJass {
 
-	Jass jass;
+	private static final Logger LOGGER = Logger.getLogger("Logger");
+	
+	private Jass jass;
 	
 	@Before
 	public void setUp() throws CardGameDoesNotExistException{
+		
+		Handler handler=new StreamHandler(System.out, new SimpleFormatter());
+		
+		// change to Level.INFO for info only
+		// Use System.out only for Game UI
+		handler.setLevel(Level.ALL); 
+		
+		LOGGER.addHandler(handler);
+		
+		LOGGER.fine("Setting up Jass Test");
+
 		
 		jass=(Jass) CardGameFactory.make("Jass");
 		

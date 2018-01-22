@@ -13,7 +13,7 @@ public class JassDeck implements Deck{
     public JassDeck(){
         for(int i = 0; i < JassCard.Rank.values().length; i++) {
             for(int j = 0; j < JassCard.Suit.values().length; j++) {
-                JassCard tempCard = new JassCard(i, j);
+                JassCard tempCard = new JassCard(j, i);
                 this.deck.add(tempCard);
             }
         }

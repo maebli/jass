@@ -1,5 +1,8 @@
 package trumpf.jass;
 
+import java.util.HashMap;
+import java.util.Map;
+
 import trumpf.cardgame.Card;
 
 public class JassCard implements Card{
@@ -26,6 +29,32 @@ public class JassCard implements Card{
         ASS
     }
     
+    private static Map<Integer,String> ranksNames;
+    private static Map<Integer,String> suitsNames;
+    
+    static{
+    	Map<Integer,String> ranksGerman=new HashMap<Integer,String>();
+    	ranksGerman.put(Rank.C6.ordinal(),"Sechs");
+    	ranksGerman.put(Rank.C7.ordinal(),"Sieben");
+    	ranksGerman.put(Rank.C8.ordinal(),"Acht");
+    	ranksGerman.put(Rank.C9.ordinal(),"Neun");
+    	ranksGerman.put(Rank.BANNER.ordinal(),"Banner");
+    	ranksGerman.put(Rank.UNTER.ordinal(),"Unter");
+    	ranksGerman.put(Rank.OBER.ordinal(),"Ober");
+    	ranksGerman.put(Rank.KOENIG.ordinal(),"König");
+    	ranksGerman.put(Rank.ASS.ordinal(),"Ass");
+    	ranksNames=ranksGerman;
+    }
+    
+    static{
+    	Map<Integer,String> suitsGerman=new HashMap<Integer,String>();
+    	suitsGerman.put(Suit.EICHEL.ordinal(),"Eichel");
+    	suitsGerman.put(Suit.ROSEN.ordinal(),"Rosen");
+    	suitsGerman.put(Suit.SCHELLEN.ordinal(),"Schellen");
+    	suitsGerman.put(Suit.SCHILTEN.ordinal(),"Schilten");
+    	suitsNames=suitsGerman;
+    }
+    
     public JassCard(int suit, int rank){
         this.suit = suit;
         this.rank = rank;
@@ -49,5 +78,10 @@ public class JassCard implements Card{
    @Override
 	public void setRank(int rank) {
 		this.rank = rank;
-	}  
+	}
+   
+   public String toString(){
+	   return suitsNames.get(suit)+" "+
+			   ranksNames.get(rank);
+   }
 }

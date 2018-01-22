@@ -47,7 +47,7 @@ public class JassHand implements Hand{
 	public String toString(){
 		String cardsAsString="Cards \r\n \n";
 		for(Card card:cards){
-			cardsAsString+="Suit:"+card.getSuit()+"  Rank:"+card.getRank();
+			cardsAsString+=card;
 			cardsAsString+="\r\n";
 		}
 		return cardsAsString;
