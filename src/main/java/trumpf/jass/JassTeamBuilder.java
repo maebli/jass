@@ -14,8 +14,8 @@ public class JassTeamBuilder implements TeamBuilder{
 	@Override
 	public Map<Player,Team> build(Collection<Player> players) {
 		Map<Player,Team> teams= new HashMap<Player,Team>();
-		Team alpha=new JassTeam();
-		Team beta= new JassTeam();
+		Team alpha=new JassTeam(true);
+		Team beta= new JassTeam(false);
 		Iterator<Player> playerIterator=players.iterator();
 		
 		teams.put(playerIterator.next(),alpha);

@@ -1,5 +1,6 @@
 package trumpf.jass;
 
+import trumpf.cardgame.Card;
 import trumpf.cardgame.Player;
 import trumpf.cardgame.exception.CardSetIsFullException;
 
@@ -25,6 +26,12 @@ public class StupidJassPlayer implements Player {
 	@Override
 	public void assignName(String name) {
 		this.name=name;
+	}
+
+	@Override
+	public Card playCard() {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 }

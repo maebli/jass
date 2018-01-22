@@ -8,6 +8,7 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
+import java.util.Vector;
 import java.util.logging.Handler;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -48,12 +49,11 @@ public class TestJass {
 		jass=(Jass) CardGameFactory.make("Jass");
 		
 		PlayersBuilder playersBuilder=new JassPlayersBuilder();
-		TeamBuilder teamBuilder=new JassTeamBuilder();
 		
-		Collection<Player> players = playersBuilder.build();
-		Map<Player, Team> teams = teamBuilder.build(players);
+		Vector<Player> players = playersBuilder.build();
+		JassTable table = new JassTable(players);
 		
-		jass.setTeams(teams);
+		jass.setPlayers(table);
 
 	}
 

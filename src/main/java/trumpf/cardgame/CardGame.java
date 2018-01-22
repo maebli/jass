@@ -1,11 +1,13 @@
 package trumpf.cardgame;
 
-import java.util.Map;
+import java.util.Vector;
+
+import trumpf.jass.JassTable;
 
 public interface CardGame {
 	
 	public void play();
-	public void setTeams(Map<Player,Team> teams);
 	public String getName();
+	void setPlayers(JassTable table);
 	
 }

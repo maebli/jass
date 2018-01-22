@@ -6,5 +6,6 @@ public interface Player {
 
 	void dealCard(JassCard removeTopCard);
 	void assignName(String name);
+	Card playCard();
 
 }
