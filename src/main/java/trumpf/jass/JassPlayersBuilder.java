@@ -1,22 +1,22 @@
 package trumpf.jass;
 
 
-import java.util.Vector;
 
-import trumpf.cardgame.Player;
+import java.util.ArrayList;
+
 import trumpf.cardgame.PlayersBuilder;
 
 public class JassPlayersBuilder implements PlayersBuilder{
 
 	@Override
-	public Vector<Player> build() {
+	public ArrayList<JassPlayer> build() {
 		
-		Player michael=new StupidJassPlayer();
-		Player fritz=new StupidJassPlayer();
-		Player max= new StupidJassPlayer();
-		Player hans= new StupidJassPlayer();
+		JassPlayer michael=new StupidJassPlayer();
+		JassPlayer fritz=new StupidJassPlayer();
+		JassPlayer max= new StupidJassPlayer();
+		JassPlayer hans= new StupidJassPlayer();
 		
-		Vector<Player> players = new Vector<Player>();
+		ArrayList<JassPlayer> players = new ArrayList<JassPlayer>();
 		players.add(michael);
 		players.add(fritz);
 		players.add(max);

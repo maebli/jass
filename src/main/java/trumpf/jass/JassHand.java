@@ -12,10 +12,10 @@ public class JassHand implements Hand{
 	
 	public static int JASS_HAND_SIZE = 9;
 	
-	private Set<Card> cards = new HashSet<Card>();
+	private Set<JassCard> cards = new HashSet<JassCard>();
 
 	@Override
-	public void addCards(Card card) throws CardSetIsFullException {
+	public void addCards(JassCard card) throws CardSetIsFullException {
 		if(cards.size()<(JASS_HAND_SIZE)){
 			cards.add(card);
 		}else{
@@ -24,7 +24,7 @@ public class JassHand implements Hand{
 	}
 
 	@Override
-	public void addCards(Set<Card> cards) throws CardSetIsFullException {
+	public void addCards(Set<JassCard> cards) throws CardSetIsFullException {
 		if((this.cards.size()+cards.size())<(JASS_HAND_SIZE)){
 			cards.addAll(cards);
 		}else{
@@ -33,15 +33,24 @@ public class JassHand implements Hand{
 	}
 
 	@Override
-	public Set<Card> getAllCards() {
+	public Set<JassCard> getAllCards() {
 		return cards;
 	}
 
 	@Override
-	public void removeCard(Card card) throws CardNotInSetException {
+	public void removeCard(JassCard card) throws CardNotInSetException {
 		if(!cards.remove(card)){
 			throw new CardNotInSetException();
 		}
+	}
+	
+	public boolean containsSuit(int suit){
+		for(Card card:cards){
+			if(card.getSuit()==suit){
+				return true;
+			}
+		}
+		return false;
 	}
 	
 	public String toString(){

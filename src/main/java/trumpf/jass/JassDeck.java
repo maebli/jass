@@ -1,5 +1,6 @@
 package trumpf.jass;
 
+import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Vector;
 
@@ -8,7 +9,7 @@ import trumpf.jass.JassCard;
 
 public class JassDeck implements Deck{
     
-    private Vector<JassCard> deck = new Vector<JassCard>();
+    private ArrayList<JassCard> deck = new ArrayList<JassCard>();
     
     public JassDeck(){
         for(int i = 0; i < JassCard.Rank.values().length; i++) {
@@ -38,7 +39,7 @@ public class JassDeck implements Deck{
     }
     
     public String showBottomCard(){
-        JassCard bottomCard = this.deck.firstElement();
+        JassCard bottomCard = this.deck.get(0);
         String out = "Rank: " + bottomCard.getRank() + " Suit: " + bottomCard.getSuit();
         return out;
     }

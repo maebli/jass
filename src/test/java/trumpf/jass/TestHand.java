@@ -24,7 +24,7 @@ public class TestHand {
 	@Test
 	public void testJassHand() throws CardSetIsFullException {
 		for(int i=0;i<JassHand.JASS_HAND_SIZE;i++){
-			Card c= new JassCard(0,0);
+			JassCard c= new JassCard(0,0);
 			jassHand.addCards(c);
 		}
 		System.out.println(jassHand);

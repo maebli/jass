@@ -20,7 +20,6 @@ import org.junit.Test;
 
 import trumpf.cardgame.CardGame;
 import trumpf.cardgame.CardGameFactory;
-import trumpf.cardgame.Player;
 import trumpf.cardgame.PlayersBuilder;
 import trumpf.cardgame.Team;
 import trumpf.cardgame.TeamBuilder;
@@ -39,6 +38,7 @@ public class TestJass {
 		
 		// change to Level.INFO for info only
 		// Use System.out only for Game UI
+		
 		handler.setLevel(Level.ALL); 
 		
 		LOGGER.addHandler(handler);
@@ -50,7 +50,7 @@ public class TestJass {
 		
 		PlayersBuilder playersBuilder=new JassPlayersBuilder();
 		
-		Vector<Player> players = playersBuilder.build();
+		ArrayList<JassPlayer> players = playersBuilder.build();
 		JassTable table = new JassTable(players);
 		
 		jass.setPlayers(table);

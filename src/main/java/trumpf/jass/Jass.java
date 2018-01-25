@@ -22,8 +22,7 @@ public class Jass implements CardGame{
 	public void play() {
 		
 		JassGameModerator.dealHands(table);
-
-		//JassGameModerator.setUmpire(umpire);
+		
 		for(int i=0;i<JassHand.JASS_HAND_SIZE;i++){
 			JassGameModerator.moderateRound(table);
 		}

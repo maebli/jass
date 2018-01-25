@@ -1,9 +1,11 @@
 package trumpf.cardgame;
 
-import java.util.Collection;
-import java.util.Vector;
+import java.util.ArrayList;
+
+import trumpf.jass.JassPlayer;
+
 
 public interface PlayersBuilder {
 
-	public Vector<Player> build();
+	public ArrayList<JassPlayer> build();
 }

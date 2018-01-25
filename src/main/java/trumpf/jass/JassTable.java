@@ -1,48 +1,66 @@
 package trumpf.jass;
 
 
-import java.util.Vector;
+import java.util.ArrayList;
 
-import trumpf.cardgame.Player;
 import trumpf.cardgame.Table;
 
 public class JassTable implements Table{
 	
-    private Vector<Player> players; 
+	private static final int MAX_PLAYERS_AT_JASS_TABLE=4;
+    private ArrayList<JassPlayer> players; 
+    
+    private JassTrick trick=new JassTrick();
     
     /*
      * Sitting arrangement
      * 
      *  (0)		(3)
-     *     TABLE
+     *     Trick
      *  (1)		(2)
      *  
      *  team a: 0,2
      *  team b: 1,3
      */
     
-    public JassTable(Vector<Player> players){
-    	if(players.size()!=4) {
+
+	public JassTable(ArrayList<JassPlayer> players){
+    	if(players.size()!=MAX_PLAYERS_AT_JASS_TABLE) {
     		System.exit(0);
     	}
     	this.players=players;
     }
     
-    public Vector<Player> getPlayers(){
+    public ArrayList<JassPlayer> getPlayers(){
     	return players;
     }
     
-    public Vector<Player> getPlayers(Player firstPlayer){
+    public ArrayList<JassPlayer> getPlayers(JassPlayer firstPlayer){
     	
     	int index=players.indexOf(firstPlayer);
-    	Vector<Player> orderedVector=new Vector<Player>();
+    	ArrayList<JassPlayer> orderedVector=new ArrayList<JassPlayer>();
     	
     	for(int i=0;i<players.size();i++){
-    		orderedVector.add(players.elementAt(index));
+    		orderedVector.add(players.get(index));
     		index=(index+1)%players.size();
     	}
 
     	return orderedVector;
     }
+    
+
+    public JassTrick playCardToTrick(JassCard card){
+    	trick.playCard(card);
+    	return trick;
+    }
+    
+    public void resetTrick(){
+    	trick.clear();
+    }
+
+	public JassTrick getTrick() {
+		return this.trick;
+	}
+    
 }
 

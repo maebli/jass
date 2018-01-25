@@ -5,18 +5,18 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
 
-import trumpf.cardgame.Player;
 import trumpf.cardgame.Team;
 import trumpf.cardgame.TeamBuilder;
 
 public class JassTeamBuilder implements TeamBuilder{
 
 	@Override
-	public Map<Player,Team> build(Collection<Player> players) {
-		Map<Player,Team> teams= new HashMap<Player,Team>();
+	public Map<JassPlayer,Team> build(Collection<JassPlayer> players) {
+		
+		Map<JassPlayer,Team> teams= new HashMap<JassPlayer,Team>();
 		Team alpha=new JassTeam(true);
 		Team beta= new JassTeam(false);
-		Iterator<Player> playerIterator=players.iterator();
+		Iterator<JassPlayer> playerIterator=players.iterator();
 		
 		teams.put(playerIterator.next(),alpha);
 		teams.put(playerIterator.next(),alpha);

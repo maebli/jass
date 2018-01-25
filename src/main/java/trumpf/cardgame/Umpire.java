@@ -1,5 +1,5 @@
 package trumpf.cardgame;
 
-public interface Rule {
+public interface Umpire {
 
 }

@@ -1,10 +1,8 @@
 package trumpf.jass;
 
-import trumpf.cardgame.Card;
-import trumpf.cardgame.Player;
 import trumpf.cardgame.exception.CardSetIsFullException;
 
-public class StupidJassPlayer implements Player {
+public class StupidJassPlayer implements JassPlayer {
 
 	private JassHand hand;
 	private String name;
@@ -29,9 +27,29 @@ public class StupidJassPlayer implements Player {
 	}
 
 	@Override
-	public Card playCard() {
-		// TODO Auto-generated method stub
+	public JassCard playCard(JassTrick trick) {
+		JassMove move =new JassMove();
+		move.setTrick(trick);
+		move.setPlayer(this);
+		for(JassCard card:hand.getAllCards()){
+			move.setCard(card);
+			if(JassUmpire.abidesByTheRules(move)){
+				return card;
+			}
+		}
+		System.err.println("No legal card found,rules are wrong..");
+		System.exit(0);
 		return null;
+	}
+
+	@Override
+	public JassHand getHand() {
+		return this.hand;
+	}
+
+	@Override
+	public boolean canPlaySuit(int suit) {
+		return hand.containsSuit(suit);
 	}
 
 }
