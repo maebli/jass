@@ -23,11 +23,19 @@ public class JassTrick implements Trick{
 		}
 	}
 	
-	public ArrayList<JassCard> getTrick() {
+	public ArrayList<JassCard> get() {
 		return trick;
 	}
 	
-	public int getSuitOfTrick(){
+	public int size(){
+		return trick.size();
+	}
+	
+	public boolean isEmtpy(){
+		return trick.size()==0;
+	}
+	
+	public int getSuit(){
 		return trick.get(0).getSuit();
 	}
 	

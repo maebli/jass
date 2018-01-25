@@ -1,5 +1,6 @@
 package trumpf.jass;
 
+import trumpf.cardgame.exception.CardNotInSetException;
 import trumpf.cardgame.exception.CardSetIsFullException;
 
 public class StupidJassPlayer implements JassPlayer {
@@ -34,6 +35,12 @@ public class StupidJassPlayer implements JassPlayer {
 		for(JassCard card:hand.getAllCards()){
 			move.setCard(card);
 			if(JassUmpire.abidesByTheRules(move)){
+				try {
+					hand.removeCard(card);
+				} catch (CardNotInSetException e) {
+					System.err.println("Fatal error, player is doing stupid things.");
+					System.exit(0);
+				}
 				return card;
 			}
 		}

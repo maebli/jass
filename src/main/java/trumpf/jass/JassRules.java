@@ -28,9 +28,11 @@ public class JassRules {
 		@Override
 		public boolean abeidsByTheRule(JassMove move) {
 			
-			return true;
+			if(move.getTrick().isEmtpy()){
+				return true;
+			}
 			
-			/*if(JassGameModerator.isTrumpfGame()){
+			if(JassGameModerator.isTrumpfGame()){
 				System.err.println("Trumpf not implemented yet.");
 				System.exit(0);
 			}
@@ -47,7 +49,7 @@ public class JassRules {
 				}
 			}else{
 				return true;
-			}*/
+			}
 		}
 		
 	}

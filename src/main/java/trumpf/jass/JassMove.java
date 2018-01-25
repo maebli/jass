@@ -35,8 +35,15 @@ public class JassMove {
 	public void setTrick(JassTrick trick){
 		this.trick=trick;
 	}
+	
 	public int getSuitOfTrick(){
-		return this.trick.getSuitOfTrick();
+		return this.trick.getSuit();
 	}
+	
+	public JassTrick getTrick(){
+		return this.trick;
+	}
+	
+	
 
 }
