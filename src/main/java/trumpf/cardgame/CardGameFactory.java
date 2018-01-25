@@ -4,8 +4,8 @@ import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
 
-import trumpf.cardgame.exception.CardGameDoesNotExistException;
 import trumpf.jass.Jass;
+import trumpf.jass.exception.JassCardGameDoesNotExistException;
 
 public class CardGameFactory {
 
@@ -16,11 +16,11 @@ public class CardGameFactory {
 		        put("Jass", (CardGame) new Jass());
 			}});
 	
-	public static CardGame make(String name) throws CardGameDoesNotExistException{
+	public static CardGame make(String name) throws JassCardGameDoesNotExistException{
 		if(CARD_GAME_MAP.containsKey(name)){
 			return CARD_GAME_MAP.get(name);
 		}else{
-			throw new CardGameDoesNotExistException(name);
+			throw new JassCardGameDoesNotExistException(name);
 		}
 	}
 	

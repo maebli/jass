@@ -1,12 +1,12 @@
 package trumpf.jass;
 
-import trumpf.cardgame.exception.CardNotInSetException;
-import trumpf.cardgame.exception.CardSetIsFullException;
+import trumpf.jass.exception.JassCardNotInSetException;
+import trumpf.jass.exception.JassCardSetIsFullException;
 
 public class StupidJassPlayer implements JassPlayer {
 
 	private JassHand hand;
-	private String name;
+	private String name = "Unnamed Jassplayer";
 	
 	public StupidJassPlayer(){
 		this.hand=new JassHand();
@@ -16,7 +16,7 @@ public class StupidJassPlayer implements JassPlayer {
 	public void dealCard(JassCard card) {
 		try {
 			hand.addCards(card);
-		} catch (CardSetIsFullException e) {
+		} catch (JassCardSetIsFullException e) {
 			System.err.println("Fatal error. Player "+name+" was dealt too many cards.");
 			System.exit(0);
 		}
@@ -37,7 +37,7 @@ public class StupidJassPlayer implements JassPlayer {
 			if(JassUmpire.abidesByTheRules(move)){
 				try {
 					hand.removeCard(card);
-				} catch (CardNotInSetException e) {
+				} catch (JassCardNotInSetException e) {
 					System.err.println("Fatal error, player is doing stupid things.");
 					System.exit(0);
 				}
@@ -59,4 +59,12 @@ public class StupidJassPlayer implements JassPlayer {
 		return hand.containsSuit(suit);
 	}
 
+	public String toString(){
+		return "\u001B[32m"+name+"\u001B[0m";
+	}
+
+	@Override
+	public int chooseGameMode() {
+		return Jass.GameMode.OBEN.ordinal();
+	}
 }

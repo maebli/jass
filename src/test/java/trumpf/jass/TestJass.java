@@ -3,27 +3,19 @@ package trumpf.jass;
 import static org.junit.Assert.*;
 
 import java.util.ArrayList;
-import java.util.Collection;
-import java.util.HashMap;
-import java.util.Iterator;
-import java.util.List;
-import java.util.Map;
-import java.util.Vector;
+
 import java.util.logging.Handler;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import java.util.logging.SimpleFormatter;
-import java.util.logging.StreamHandler;
+
 
 import org.junit.Before;
 import org.junit.Test;
 
-import trumpf.cardgame.CardGame;
 import trumpf.cardgame.CardGameFactory;
 import trumpf.cardgame.PlayersBuilder;
-import trumpf.cardgame.Team;
-import trumpf.cardgame.TeamBuilder;
-import trumpf.cardgame.exception.CardGameDoesNotExistException;
+
+import trumpf.jass.exception.JassCardGameDoesNotExistException;
 
 public class TestJass {
 
@@ -32,16 +24,18 @@ public class TestJass {
 	private Jass jass;
 	
 	@Before
-	public void setUp() throws CardGameDoesNotExistException{
+	public void setUp() throws JassCardGameDoesNotExistException{
 		
-		Handler handler=new StreamHandler(System.out, new SimpleFormatter());
+		//Handler handler=new StreamHandler(System.out, new SimpleFormatter());
 		
 		// change to Level.INFO for info only
 		// Use System.out only for Game UI
 		
-		handler.setLevel(Level.ALL); 
+		//handler.setLevel(Level.OFF); 
 		
-		LOGGER.addHandler(handler);
+		//LOGGER.addHandler(handler);
+		
+		LOGGER.setLevel(Level.OFF);
 		
 		LOGGER.fine("Setting up Jass Test");
 

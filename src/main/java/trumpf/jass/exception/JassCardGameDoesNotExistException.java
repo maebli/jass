@@ -1,15 +1,15 @@
-package trumpf.cardgame.exception;
+package trumpf.jass.exception;
 
-public class CardGameDoesNotExistException extends Exception {
+public class JassCardGameDoesNotExistException extends Exception {
 
 	/*
 	 * Enforce the construction with a message 
 	 */
 	
 	@SuppressWarnings("unused")
-	private CardGameDoesNotExistException(){};
+	private JassCardGameDoesNotExistException(){};
 	
-	public CardGameDoesNotExistException(String name) {
+	public JassCardGameDoesNotExistException(String name) {
 		super("The Game with the name \""+name+"\"does not exist");
 	}
 

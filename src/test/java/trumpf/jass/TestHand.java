@@ -7,7 +7,7 @@ import org.junit.Before;
 import org.junit.Test;
 
 import trumpf.cardgame.Card;
-import trumpf.cardgame.exception.CardSetIsFullException;
+import trumpf.jass.exception.JassCardSetIsFullException;
 
 public class TestHand {
 
@@ -22,7 +22,7 @@ public class TestHand {
 	}
 
 	@Test
-	public void testJassHand() throws CardSetIsFullException {
+	public void testJassHand() throws JassCardSetIsFullException {
 		for(int i=0;i<JassHand.JASS_HAND_SIZE;i++){
 			JassCard c= new JassCard(0,0);
 			jassHand.addCards(c);
@@ -31,7 +31,7 @@ public class TestHand {
 		try{
 			jassHand.addCards(new JassCard(0,0));
 			fail(); // hand is full
-		}catch(CardSetIsFullException e){
+		}catch(JassCardSetIsFullException e){
 		}
 	}
 

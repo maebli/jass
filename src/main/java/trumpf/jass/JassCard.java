@@ -83,8 +83,10 @@ public class JassCard implements Card{
 	}
    
    public String toString(){
-	   return suitsNames.get(suit)+" "+
-			   ranksNames.get(rank);
+	   return "\u001B[34m"+suitsNames.get(suit)+" "+
+			   "\u001B[35m"+
+			   ranksNames.get(rank)+
+			    "\u001B[0m";
    }
    
    @Override

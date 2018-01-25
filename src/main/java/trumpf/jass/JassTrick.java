@@ -2,9 +2,8 @@ package trumpf.jass;
 
 import java.util.ArrayList;
 
-import trumpf.cardgame.Trick;
 
-public class JassTrick implements Trick{
+public class JassTrick{
 	
 	/* Trick is a "round" of four cards played see
 	 * https://en.wikipedia.org/wiki/Trick-taking_game

@@ -2,9 +2,8 @@ package trumpf.jass;
 
 import java.util.logging.Logger;
 
-import trumpf.cardgame.GameModerator;
 
-public class JassGameModerator implements GameModerator{
+public class JassGameModerator{
 	
 	private static final Logger LOGGER = Logger.getLogger("Logger");
 	
@@ -15,15 +14,6 @@ public class JassGameModerator implements GameModerator{
 	private static final JassCard startingCard=
 			new JassCard(JassCard.Suit.EICHEL.ordinal()
 					,JassCard.Rank.BANNER.ordinal());
-	
-    public enum GameMode{
-    	OBEN,
-    	UNTEN,
-    	SCHAELLE_TRUMPF,
-    	SCHILTE_TRUMPF,
-    	EICHEL_TRUMPF,
-    	ROSE_TRUMPF
-    }
     
     private static int gameMode;
 
@@ -50,14 +40,16 @@ public class JassGameModerator implements GameModerator{
 		
 	}
 
+	public static void setGameMode(){
+		System.out.println(nextPlayer+" chooses mode "+gameMode);
+		gameMode=nextPlayer.chooseGameMode();
+	}
 
 	public static void moderateRound(JassTable table) {
 		
-		LOGGER.info("Playing new round");
 		LOGGER.info("Game Mode = "+getGameMode());
 		
 		for(JassPlayer player:table.getPlayers(nextPlayer)){
-			System.out.println("Next step..");
 			
 			JassCard card=player.playCard(table.getTrick());
 			
@@ -67,7 +59,7 @@ public class JassGameModerator implements GameModerator{
 			
 			if(JassUmpire.abidesByTheRules(nextMove)){
 				table.playCardToTrick(card);
-				System.out.println("Player "+player+" played "+card+" to trick.");
+				System.out.println(player+" played "+card+" to trick.");
 			}else{
 				System.err.println("Player "+player+"played"+
 						"illegal card to trick ");
@@ -84,8 +76,8 @@ public class JassGameModerator implements GameModerator{
 	}
     
     public static boolean isTrumpfGame(){
-    	return (gameMode!=GameMode.OBEN.ordinal()) && 
-    			(gameMode !=GameMode.UNTEN.ordinal());
+    	return (gameMode!=Jass.GameMode.OBEN.ordinal()) && 
+    			(gameMode !=Jass.GameMode.UNTEN.ordinal());
     }
 
 	public static void setGameMode(int newGameMode) {

@@ -8,5 +8,6 @@ public interface JassPlayer {
 	JassHand getHand();
 	boolean canPlaySuit(int suit);
 	JassCard playCard(JassTrick trick);
+	int chooseGameMode();
 	
 }

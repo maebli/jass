@@ -12,6 +12,14 @@ public class Jass implements CardGame{
 
 	private static final String GAME_NAME = "Jass";
 
+    public enum GameMode{
+    	OBEN,
+    	UNTEN,
+    	SCHAELLE_TRUMPF,
+    	SCHILTE_TRUMPF,
+    	EICHEL_TRUMPF,
+    	ROSE_TRUMPF
+    }
     
     private JassTable table;
     
@@ -22,8 +30,10 @@ public class Jass implements CardGame{
 	public void play() {
 		
 		JassGameModerator.dealHands(table);
+		JassGameModerator.setGameMode();
 		
 		for(int i=0;i<JassHand.JASS_HAND_SIZE;i++){
+			System.out.println("\u001B[31m Round "+(i+1)+"\u001B[0m");
 			JassGameModerator.moderateRound(table);
 		}
 	}

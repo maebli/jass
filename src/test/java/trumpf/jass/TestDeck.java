@@ -1,11 +1,12 @@
 package trumpf.jass;
 import static org.junit.Assert.*;
+
 import org.junit.Test;
 import org.junit.Before;
 
 import trumpf.jass.JassCard;
 import trumpf.jass.JassDeck;
-import trumpf.cardgame.exception.JassDeckIsNotComplete;
+import trumpf.jass.exception.JassDeckIsNotComplete;
 
 public class TestDeck {
     

@@ -3,9 +3,8 @@ package trumpf.jass;
 
 import java.util.ArrayList;
 
-import trumpf.cardgame.Table;
 
-public class JassTable implements Table{
+public class JassTable{
 	
 	private static final int MAX_PLAYERS_AT_JASS_TABLE=4;
     private ArrayList<JassPlayer> players; 

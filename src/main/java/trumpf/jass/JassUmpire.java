@@ -1,8 +1,7 @@
 package trumpf.jass;
 
-import trumpf.cardgame.Umpire;
 
-public class JassUmpire implements Umpire {
+public class JassUmpire{
 
 	public static boolean abidesByTheRules(JassMove nextMove) {
 		boolean moveAbidesByTheRules=true;
