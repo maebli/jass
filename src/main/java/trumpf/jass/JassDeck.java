@@ -2,7 +2,6 @@ package trumpf.jass;
 
 import java.util.ArrayList;
 import java.util.Collections;
-import java.util.Vector;
 
 import trumpf.cardgame.Deck;
 import trumpf.jass.JassCard;

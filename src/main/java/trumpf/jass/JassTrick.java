@@ -1,6 +1,7 @@
 package trumpf.jass;
 
 import java.util.ArrayList;
+import java.util.Collections;
 
 
 public class JassTrick{
@@ -9,7 +10,7 @@ public class JassTrick{
 	 * https://en.wikipedia.org/wiki/Trick-taking_game
 	 */
 
-	private static final int TRICK_MAX_SIZE = 4;
+	public static final int TRICK_MAX_SIZE = 4;
 	
 	private ArrayList<JassCard> trick=new ArrayList<JassCard>();
 	
@@ -40,5 +41,20 @@ public class JassTrick{
 	
 	public void clear(){
 		trick.clear();
+	}
+	
+	public JassCard getWinningCard(){
+		
+		ArrayList<JassCard> sortedTrick = new ArrayList<JassCard>();
+				
+		for(JassCard card:trick){
+			if(card.getSuit()==trick.get(0).getSuit()){
+				sortedTrick.add(card);
+			}
+		}
+		
+		Collections.sort(sortedTrick);
+		
+		return sortedTrick.get(sortedTrick.size()-1);
 	}
 }

@@ -4,10 +4,10 @@ import java.util.HashMap;
 import java.util.Map;
 
 import trumpf.cardgame.Card;
-import trumpf.jass.JassCard.Rank;
-import trumpf.jass.JassCard.Suit;
+import trumpf.jass.Jass;
 
-public class JassCard implements Card{
+
+public class JassCard implements Card,Comparable<JassCard>{
 	
     private int suit;
     private int rank;
@@ -62,6 +62,11 @@ public class JassCard implements Card{
         this.rank = rank;
     }
 
+	public JassCard(Suit suit, Rank rank) {
+		this.suit = suit.ordinal();
+		this.rank = rank.ordinal();
+	}
+
 	@Override
 	public int getSuit() {
 		return this.suit;
@@ -100,4 +105,52 @@ public class JassCard implements Card{
 	   }
 	   return false;
    }
+
+	@Override
+	public int compareTo(JassCard o) {
+		if(Jass.GameMode.OBEN.ordinal() ==
+				JassGameModerator.getGameMode()){
+			
+			if(o.getSuit()==suit){
+				return rank-o.getRank();
+			}else{
+				return -1;
+			}
+			
+		}else if(Jass.GameMode.UNTEN.ordinal() ==
+				JassGameModerator.getGameMode()){
+			
+			if(o.getSuit()==suit){
+				return o.getRank()-rank;
+			}else{
+				return -1;
+			}
+			
+		}else if(Jass.GameMode.ROSE_TRUMPF.ordinal() ==
+				JassGameModerator.getGameMode()){
+			
+			if(o.getSuit()==suit){
+				return rank-o.getRank();
+			}else{
+				if(o.getSuit()==Suit.ROSEN.ordinal()){
+					return 1;
+				}else{
+					return -1;
+				}
+			}
+			
+		}else if(Jass.GameMode.SCHAELLE_TRUMPF.ordinal() ==
+				JassGameModerator.getGameMode()){
+			
+		}else if(Jass.GameMode.SCHILTE_TRUMPF.ordinal() ==
+				JassGameModerator.getGameMode()){
+			
+		}else if(Jass.GameMode.EICHEL_TRUMPF.ordinal() ==
+				JassGameModerator.getGameMode()){
+			
+		}
+		return 0;
+	}
+   
+   
 }

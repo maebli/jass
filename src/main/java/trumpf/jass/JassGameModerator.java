@@ -2,6 +2,8 @@ package trumpf.jass;
 
 import java.util.logging.Logger;
 
+import trumpf.jass.Jass.GameMode;
+
 
 public class JassGameModerator{
 	
@@ -40,9 +42,13 @@ public class JassGameModerator{
 		
 	}
 
-	public static void setGameMode(){
+	public static void letPlayerChooseGameMode(){
 		System.out.println(nextPlayer+" chooses mode "+gameMode);
 		gameMode=nextPlayer.chooseGameMode();
+	}
+	
+	public static void setGameMode(GameMode mode){
+		gameMode = mode.ordinal();
 	}
 
 	public static void moderateRound(JassTable table) {
@@ -68,7 +74,10 @@ public class JassGameModerator{
 		}
 		
 		nextPlayer=JassUmpire.determineWinner(table);
+		JassScoreKeeper.addToPile(nextPlayer,table.getTrick());
+		
 		table.resetTrick();
+		
 	}
 	
     public static int getGameMode() {

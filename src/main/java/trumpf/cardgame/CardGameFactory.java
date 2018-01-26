@@ -12,7 +12,13 @@ public class CardGameFactory {
 	private CardGameFactory(){};
 	
 	private static final Map<String, CardGame> CARD_GAME_MAP = 
-		    Collections.unmodifiableMap(new HashMap<String, CardGame>() {{ 
+		    Collections.unmodifiableMap(new HashMap<String, CardGame>() {
+		    	/**
+				 * 
+				 */
+				private static final long serialVersionUID = 4061341226052762099L;
+
+			{ 
 		        put("Jass", (CardGame) new Jass());
 			}});
 	

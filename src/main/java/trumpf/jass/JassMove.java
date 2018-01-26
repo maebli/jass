@@ -1,8 +1,6 @@
 package trumpf.jass;
 
-import java.util.Set;
 
-import trumpf.cardgame.Card;
 
 public class JassMove {
 

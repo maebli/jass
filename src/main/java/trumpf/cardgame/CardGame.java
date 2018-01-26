@@ -1,6 +1,5 @@
 package trumpf.cardgame;
 
-import java.util.Vector;
 
 import trumpf.jass.JassTable;
 
