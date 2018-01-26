@@ -57,4 +57,12 @@ public class JassTrick{
 		
 		return sortedTrick.get(sortedTrick.size()-1);
 	}
+
+	public Integer getValue() {
+		int score=0;
+		for(JassCard card:trick){
+			score+=card.getValue();
+		}
+		return score;
+	}
 }

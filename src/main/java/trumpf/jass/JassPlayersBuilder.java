@@ -13,8 +13,8 @@ public class JassPlayersBuilder implements PlayersBuilder{
 		
 		JassPlayer michael=new StupidJassPlayer();
 		michael.assignName("Michael");
-		JassPlayer fritz=new StupidJassPlayer();
-		fritz.assignName("Fritz");
+		JassPlayer ellie=new StupidJassPlayer();
+		ellie.assignName("Ellie");
 		JassPlayer max= new StupidJassPlayer();
 		max.assignName("Max");
 		JassPlayer hans= new StupidJassPlayer();
@@ -22,7 +22,7 @@ public class JassPlayersBuilder implements PlayersBuilder{
 		
 		ArrayList<JassPlayer> players = new ArrayList<JassPlayer>();
 		players.add(michael);
-		players.add(fritz);
+		players.add(ellie);
 		players.add(max);
 		players.add(hans);
 		

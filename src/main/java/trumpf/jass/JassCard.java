@@ -33,6 +33,51 @@ public class JassCard implements Card,Comparable<JassCard>{
     
     private static Map<Integer,String> ranksNames;
     private static Map<Integer,String> suitsNames;
+    private static Map<Integer,Integer> obenValues;
+    private static Map<Integer,Integer> untenValues;
+    private static Map<Integer,Integer> trumpfValues;
+    
+    static{
+    	Map<Integer,Integer> values=new HashMap<Integer,Integer>();
+    	values.put(Rank.C6.ordinal(),0);
+    	values.put(Rank.C7.ordinal(),0);
+    	values.put(Rank.C8.ordinal(),8);
+    	values.put(Rank.C9.ordinal(),0);
+    	values.put(Rank.BANNER.ordinal(),10);
+    	values.put(Rank.UNTER.ordinal(),2);
+    	values.put(Rank.OBER.ordinal(),3);
+    	values.put(Rank.KOENIG.ordinal(),4);
+    	values.put(Rank.ASS.ordinal(),11);
+    	obenValues=values;
+    }
+    
+    static{
+    	Map<Integer,Integer> values=new HashMap<Integer,Integer>();
+    	values.put(Rank.C6.ordinal(),11);
+    	values.put(Rank.C7.ordinal(),0);
+    	values.put(Rank.C8.ordinal(),8);
+    	values.put(Rank.C9.ordinal(),0);
+    	values.put(Rank.BANNER.ordinal(),10);
+    	values.put(Rank.UNTER.ordinal(),2);
+    	values.put(Rank.OBER.ordinal(),3);
+    	values.put(Rank.KOENIG.ordinal(),4);
+    	values.put(Rank.ASS.ordinal(),0);
+    	untenValues=values;
+    }
+    
+    static{
+    	Map<Integer,Integer> values=new HashMap<Integer,Integer>();
+    	values.put(Rank.C6.ordinal(),0);
+    	values.put(Rank.C7.ordinal(),0);
+    	values.put(Rank.C8.ordinal(),0);
+    	values.put(Rank.C9.ordinal(),14);
+    	values.put(Rank.BANNER.ordinal(),10);
+    	values.put(Rank.UNTER.ordinal(),20);
+    	values.put(Rank.OBER.ordinal(),3);
+    	values.put(Rank.KOENIG.ordinal(),4);
+    	values.put(Rank.ASS.ordinal(),11);
+    	trumpfValues=values;
+    }
     
     static{
     	Map<Integer,String> ranksGerman=new HashMap<Integer,String>();
@@ -139,7 +184,7 @@ public class JassCard implements Card,Comparable<JassCard>{
 				}
 			}
 			
-		}else if(Jass.GameMode.SCHAELLE_TRUMPF.ordinal() ==
+		}else if(Jass.GameMode.SCHELLE_TRUMPF.ordinal() ==
 				JassGameModerator.getGameMode()){
 			
 		}else if(Jass.GameMode.SCHILTE_TRUMPF.ordinal() ==
@@ -150,6 +195,40 @@ public class JassCard implements Card,Comparable<JassCard>{
 			
 		}
 		return 0;
+	}
+	
+	int getValue(){
+		if(Jass.GameMode.OBEN.ordinal() ==
+				JassGameModerator.getGameMode()){
+			return obenValues.get(rank);
+		}else if(Jass.GameMode.UNTEN.ordinal() ==
+				JassGameModerator.getGameMode()){
+			return untenValues.get(rank);
+		}else if(rank==Rank.C8.ordinal()){
+			return 0;
+		}else if(Jass.GameMode.ROSE_TRUMPF.ordinal() ==
+				JassGameModerator.getGameMode()){
+			if(suit==Suit.ROSEN.ordinal()){
+				return trumpfValues.get(rank);
+			}
+		}else if(Jass.GameMode.SCHELLE_TRUMPF.ordinal() ==
+				JassGameModerator.getGameMode()){
+			if(suit==Suit.SCHELLEN.ordinal()){
+				return trumpfValues.get(rank);
+			}
+		}else if(Jass.GameMode.SCHILTE_TRUMPF.ordinal() ==
+				JassGameModerator.getGameMode()){
+			if(suit==Suit.SCHILTEN.ordinal()){
+				return trumpfValues.get(rank);
+			}
+		}else if(Jass.GameMode.EICHEL_TRUMPF.ordinal() ==
+				JassGameModerator.getGameMode()){
+			if(suit==Suit.EICHEL.ordinal()){
+				return trumpfValues.get(rank);
+			}
+		}
+		return obenValues.get(rank);
+		
 	}
    
    

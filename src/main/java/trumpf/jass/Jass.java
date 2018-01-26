@@ -15,7 +15,7 @@ public class Jass implements CardGame{
     public enum GameMode{
     	OBEN,
     	UNTEN,
-    	SCHAELLE_TRUMPF,
+    	SCHELLE_TRUMPF,
     	SCHILTE_TRUMPF,
     	EICHEL_TRUMPF,
     	ROSE_TRUMPF
@@ -36,6 +36,8 @@ public class Jass implements CardGame{
 			System.out.println("\u001B[31m Round "+(i+1)+"\u001B[0m");
 			JassGameModerator.moderateRound(table);
 		}
+		
+		System.out.println(JassScoreKeeper.getGameScoreAsString(table));
 	}
 
 	@Override

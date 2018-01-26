@@ -1,5 +1,7 @@
 package trumpf.jass;
 
+import java.util.ArrayList;
+
 import trumpf.jass.exception.JassCardNotInSetException;
 import trumpf.jass.exception.JassCardSetIsFullException;
 
@@ -67,4 +69,5 @@ public class StupidJassPlayer implements JassPlayer {
 	public int chooseGameMode() {
 		return Jass.GameMode.OBEN.ordinal();
 	}
+
 }

@@ -21,9 +21,11 @@ public class JassUmpire{
 		}
 		
 		JassCard winningCard=trick.getWinningCard();
+		int winningPlayerIndex=trick.get().indexOf(winningCard);
+		JassPlayer winner = table.getPlayers().get(winningPlayerIndex);
 		
-		System.out.println(winningCard+" wins round.");
+		System.out.println(winningCard+" played by "+winner+" wins round.");
 		
-		return table.getPlayers().get(0);
+		return winner;
 	}
 }
