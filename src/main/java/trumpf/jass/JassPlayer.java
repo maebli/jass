@@ -1,7 +1,7 @@
 package trumpf.jass;
 
 
-public interface JassPlayer {
+public abstract interface JassPlayer {
 
 	void dealCard(JassCard removeTopCard);
 	void assignName(String name);

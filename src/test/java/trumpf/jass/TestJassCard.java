@@ -32,9 +32,9 @@ public class TestJassCard {
 		
 		assertTrue(eichelAss.compareTo(eichelKoenig)==1);
 		assertTrue(eichelKoenig.compareTo(eichelAss)==-1);
-		assertTrue(eichelAss.compareTo(rosenAss)==1);
-		assertTrue(eichelKoenig.compareTo(rosenAss)==1);
-		assertTrue(rosenAss.compareTo(eichelAss)==1);
+		assertTrue(eichelAss.compareTo(rosenAss)==-1);
+		assertTrue(eichelKoenig.compareTo(rosenAss)==-1);
+		assertTrue(rosenAss.compareTo(eichelAss)==-1);
 		
 		JassGameModerator.setGameMode(Jass.GameMode.UNTEN);
 		

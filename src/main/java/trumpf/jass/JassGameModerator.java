@@ -80,6 +80,10 @@ public class JassGameModerator{
 		
 	}
 	
+	public static JassPlayer getCurrentStartPlayer(){
+		return nextPlayer;
+	}
+	
     public static int getGameMode() {
 		return gameMode;
 	}

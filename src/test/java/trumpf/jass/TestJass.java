@@ -4,7 +4,6 @@ import static org.junit.Assert.*;
 
 import java.util.ArrayList;
 
-import java.util.logging.Handler;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -13,7 +12,6 @@ import org.junit.Before;
 import org.junit.Test;
 
 import trumpf.cardgame.CardGameFactory;
-import trumpf.cardgame.PlayersBuilder;
 
 import trumpf.jass.exception.JassCardGameDoesNotExistException;
 
@@ -42,7 +40,7 @@ public class TestJass {
 		
 		jass=(Jass) CardGameFactory.make("Jass");
 		
-		PlayersBuilder playersBuilder=new JassPlayersBuilder();
+		JassPlayersBuilder playersBuilder=new JassPlayersBuilder();
 		
 		ArrayList<JassPlayer> players = playersBuilder.build();
 		JassTable table = new JassTable(players);

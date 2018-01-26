@@ -22,7 +22,7 @@ public class JassUmpire{
 		
 		JassCard winningCard=trick.getWinningCard();
 		int winningPlayerIndex=trick.get().indexOf(winningCard);
-		JassPlayer winner = table.getPlayers().get(winningPlayerIndex);
+		JassPlayer winner = table.getPlayers(JassGameModerator.getCurrentStartPlayer()).get(winningPlayerIndex);
 		
 		System.out.println(winningCard+" played by "+winner+" wins round.");
 		

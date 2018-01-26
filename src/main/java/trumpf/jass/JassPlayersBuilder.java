@@ -4,14 +4,20 @@ package trumpf.jass;
 
 import java.util.ArrayList;
 
-import trumpf.cardgame.PlayersBuilder;
 
-public class JassPlayersBuilder implements PlayersBuilder{
+public class JassPlayersBuilder{
 
-	@Override
+	boolean humanPlayerInclude=false;
+
 	public ArrayList<JassPlayer> build() {
 		
-		JassPlayer michael=new StupidJassPlayer();
+		JassPlayer michael;
+		
+		if(humanPlayerInclude){
+			michael=new HumanJassPlayer();
+		}else{
+			michael=new StupidJassPlayer();
+		}
 		michael.assignName("Michael");
 		JassPlayer ellie=new StupidJassPlayer();
 		ellie.assignName("Ellie");
@@ -21,12 +27,17 @@ public class JassPlayersBuilder implements PlayersBuilder{
 		hans.assignName("Hans");
 		
 		ArrayList<JassPlayer> players = new ArrayList<JassPlayer>();
+		
 		players.add(michael);
 		players.add(ellie);
 		players.add(max);
 		players.add(hans);
 		
 		return players;
+	}
+	
+	public void activateHumanPlayer(){
+		humanPlayerInclude=true;
 	}
 
 }
