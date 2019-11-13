@@ -1,5 +1,7 @@
 # jass
 
-##
+## Rules of the Game
 
-Coming soon...
+https://www.swisslos.ch/en/jass/informations/jass-rules/principles-of-jass.html
+
+

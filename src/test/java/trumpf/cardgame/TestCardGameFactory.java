@@ -1,18 +1,17 @@
 package trumpf.cardgame;
 
-import static org.junit.Assert.*;
-
 import org.junit.Test;
+import trumpf.jass.exception.JassCardGameDoesNotExistException;
 
 import static org.hamcrest.CoreMatchers.instanceOf;
-import trumpf.jass.exception.JassCardGameDoesNotExistException;
+import static org.junit.Assert.assertThat;
 
 public class TestCardGameFactory {
 
 	
 	@Test(expected=JassCardGameDoesNotExistException.class)
 	public void TestCreatinOfNonExistantCardGame() throws JassCardGameDoesNotExistException{
-		CardGameFactory.make("Im not a Game Name.");		
+		trumpf.cardgame.CardGameFactory.make("Im not a Game Name.");
 	}
 	
 	@Test
