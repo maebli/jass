@@ -19,7 +19,7 @@ public class JassCLI {
 	public static void main(String[] args){
 
 		try {
-			gjass=(Jass) CardGameFactory.make("Jass");
+			jass=(Jass) CardGameFactory.make("Jass");
 		} catch (JassCardGameDoesNotExistException e) {
 			System.err.println("Game doesn't exist..");
 			System.exit(0);
