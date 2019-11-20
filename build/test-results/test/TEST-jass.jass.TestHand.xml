@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="jass.jass.TestHand" tests="2" skipped="0" failures="0" errors="0" timestamp="2019-11-20T23:08:27" hostname="Michaels-MBP-2.fritz.box" time="0.012">
+  <properties/>
+  <testcase name="testJassHand" classname="jass.jass.TestHand" time="0.006"/>
+  <testcase name="testJassHand" classname="jass.jass.TestHand" time="0.001"/>
+  <system-out><![CDATA[Cards 
+ 
+?[34mEichel ?[35mSechs?[0m
+?[34mEichel ?[35mSechs?[0m
+?[34mEichel ?[35mSechs?[0m
+?[34mEichel ?[35mSechs?[0m
+?[34mEichel ?[35mSechs?[0m
+?[34mEichel ?[35mSechs?[0m
+?[34mEichel ?[35mSechs?[0m
+?[34mEichel ?[35mSechs?[0m
+?[34mEichel ?[35mSechs?[0m
+
+Cards 
+ 
+?[34mEichel ?[35mSechs?[0m
+?[34mEichel ?[35mSechs?[0m
+?[34mEichel ?[35mSechs?[0m
+?[34mEichel ?[35mSechs?[0m
+?[34mEichel ?[35mSechs?[0m
+?[34mEichel ?[35mSechs?[0m
+?[34mEichel ?[35mSechs?[0m
+?[34mEichel ?[35mSechs?[0m
+?[34mEichel ?[35mSechs?[0m
+
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
