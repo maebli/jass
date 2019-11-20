@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="jass.cardgame.TestCardGameFactory" tests="4" skipped="0" failures="0" errors="0" timestamp="2019-11-20T23:08:27" hostname="Michaels-MBP-2.fritz.box" time="0.093">
+<testsuite name="jass.cardgame.TestCardGameFactory" tests="4" skipped="0" failures="0" errors="0" timestamp="2019-11-20T23:13:50" hostname="Michaels-MBP-2.fritz.box" time="0.075">
   <properties/>
-  <testcase name="testCreationFoExistantCardGame" classname="jass.cardgame.TestCardGameFactory" time="0.006"/>
+  <testcase name="testCreationFoExistantCardGame" classname="jass.cardgame.TestCardGameFactory" time="0.004"/>
   <testcase name="TestCreatinOfNonExistantCardGame" classname="jass.cardgame.TestCardGameFactory" time="0.006"/>
   <testcase name="testCreationFoExistantCardGame" classname="jass.cardgame.TestCardGameFactory" time="0.0"/>
   <testcase name="TestCreatinOfNonExistantCardGame" classname="jass.cardgame.TestCardGameFactory" time="0.0"/>

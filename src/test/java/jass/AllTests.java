@@ -1,6 +1,5 @@
 package jass;
 
-import jass.jass.TestDeck;
 import jass.jass.TestHand;
 import jass.jass.TestJassCard;
 import org.junit.runner.RunWith;
@@ -14,7 +13,6 @@ import jass.jass.TestJass;
 @SuiteClasses({	TestJass.class,
         TestCardGameFactory.class,
         TestJassCard.class,
-        TestHand.class,
-        TestDeck.class})
+        TestHand.class})
 public class AllTests {
 }
