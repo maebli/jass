@@ -2,8 +2,6 @@ package jass.jass;
 
 
 import jass.cardgame.CardGame;
-import jass.jass.impartial.JassGameModerator;
-import jass.jass.impartial.JassScoreKeeper;
 
 import java.util.logging.Level;
 import java.util.logging.Logger;

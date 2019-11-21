@@ -4,23 +4,21 @@ import java.util.HashMap;
 import java.util.Map;
 
 import jass.cardgame.Card;
-import jass.jass.impartial.JassGameModerator;
 
 
 public class JassCard implements Card,Comparable<JassCard>{
 	
     private int suit;
     private int rank;
-
-
-	public enum Suit {
+    
+    public static enum Suit {
         EICHEL,
         ROSEN,
         SCHELLEN,
         SCHILTEN
     }
     
-    public enum Rank {
+    public static enum Rank {
         C6,
         C7,
         C8,
@@ -32,11 +30,11 @@ public class JassCard implements Card,Comparable<JassCard>{
         ASS
     }
     
-    private final static Map<Integer,String> ranksNames;
-    private final static Map<Integer,String> suitsNames;
-    private final static Map<Integer,Integer> obenValues;
-    private final static Map<Integer,Integer> untenValues;
-    private final static Map<Integer,Integer> trumpfValues;
+    private static Map<Integer,String> ranksNames;
+    private static Map<Integer,String> suitsNames;
+    private static Map<Integer,Integer> obenValues;
+    private static Map<Integer,Integer> untenValues;
+    private static Map<Integer,Integer> trumpfValues;
     
     static{
     	Map<Integer,Integer> values=new HashMap<Integer,Integer>();
@@ -102,7 +100,7 @@ public class JassCard implements Card,Comparable<JassCard>{
     	suitsGerman.put(Suit.SCHILTEN.ordinal(),"Schilten");
     	suitsNames=suitsGerman;
     }
-
+    
     public JassCard(int suit, int rank){
         this.suit = suit;
         this.rank = rank;

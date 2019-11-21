@@ -18,6 +18,7 @@ public class JassDeck implements Deck{
         }
     }
 
+    
     @Override
     public void shuffle() {
     	Collections.shuffle(deck);

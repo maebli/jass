@@ -1,15 +1,13 @@
 package jass.jass;
 
 
-import jass.jass.players.JassPlayer;
-
 import java.util.ArrayList;
 
 
 public class JassTable{
 	
 	private static final int MAX_PLAYERS_AT_JASS_TABLE=4;
-    private ArrayList<JassPlayer> players;
+    private ArrayList<JassPlayer> players; 
     
     private JassTrick trick=new JassTrick();
     
