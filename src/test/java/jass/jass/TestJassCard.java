@@ -2,6 +2,7 @@ package jass.jass;
 
 import static org.junit.Assert.*;
 
+import jass.jass.impartial.JassGameModerator;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;

@@ -2,6 +2,10 @@ package jass.jass;
 
 
 
+import jass.jass.players.HumanJassPlayer;
+import jass.jass.players.JassPlayer;
+import jass.jass.players.StupidJassPlayer;
+
 import java.util.ArrayList;
 
 

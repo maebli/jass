@@ -8,6 +8,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 
+import jass.jass.players.JassPlayer;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -24,20 +25,10 @@ public class TestJass {
 	@Before
 	public void setUp() throws JassCardGameDoesNotExistException{
 		
-		//Handler handler=new StreamHandler(System.out, new SimpleFormatter());
-		
-		// change to Level.INFO for info only
-		// Use System.out only for Game UI
-		
-		//handler.setLevel(Level.OFF); 
-		
-		//LOGGER.addHandler(handler);
-		
 		LOGGER.setLevel(Level.OFF);
 		
 		LOGGER.fine("Setting up Jass Test");
 
-		
 		jass=(Jass) CardGameFactory.make("Jass");
 		
 		JassPlayersBuilder playersBuilder=new JassPlayersBuilder();
@@ -48,8 +39,6 @@ public class TestJass {
 		jass.setPlayers(table);
 
 	}
-
-
 	
 	@Test
 	public void testPlay(){

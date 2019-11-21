@@ -2,7 +2,7 @@ package jass.cardgame;
 
 import java.util.Collection;
 
-import jass.jass.JassRule;
+import jass.jass.rules.JassRule;
 
 
 

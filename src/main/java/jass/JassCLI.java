@@ -6,7 +6,7 @@ import java.util.logging.Logger;
 
 import jass.cardgame.CardGameFactory;
 import jass.jass.Jass;
-import jass.jass.JassPlayer;
+import jass.jass.players.JassPlayer;
 import jass.jass.JassPlayersBuilder;
 import jass.jass.JassTable;
 import jass.jass.exception.JassCardGameDoesNotExistException;

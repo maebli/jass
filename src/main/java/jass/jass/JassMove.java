@@ -1,6 +1,7 @@
 package jass.jass;
 
 
+import jass.jass.players.JassPlayer;
 
 public class JassMove {
 

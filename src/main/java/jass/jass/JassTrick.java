@@ -14,7 +14,7 @@ public class JassTrick{
 	
 	private ArrayList<JassCard> trick=new ArrayList<JassCard>();
 	
-	void playCard(JassCard card){
+	public void playCard(JassCard card){
 		if(trick.size()<TRICK_MAX_SIZE){
 			trick.add(card);
 		}else{
@@ -65,4 +65,5 @@ public class JassTrick{
 		}
 		return score;
 	}
+
 }
