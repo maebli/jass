@@ -46,11 +46,9 @@ public class JassTrick{
 	public JassCard getWinningCard(){
 		
 		ArrayList<JassCard> sortedTrick = new ArrayList<JassCard>();
-				
+
 		for(JassCard card:trick){
-			if(card.getSuit()==trick.get(0).getSuit()){
 				sortedTrick.add(card);
-			}
 		}
 		
 		Collections.sort(sortedTrick);

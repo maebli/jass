@@ -14,7 +14,7 @@ public class JassUmpire{
 	public static boolean abidesByTheRules(JassMove nextMove) {
 		boolean moveAbidesByTheRules=true;
 		for (JassRule rule : JassRules.getRules()) {
-			moveAbidesByTheRules&=rule.abeidsByTheRule(nextMove);
+            moveAbidesByTheRules &= rule.followsRule(nextMove);
 		}
 		return moveAbidesByTheRules;
 	}

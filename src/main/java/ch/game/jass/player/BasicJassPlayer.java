@@ -41,6 +41,7 @@ public abstract class BasicJassPlayer implements JassPlayer {
 		return hand.containsSuit(suit);
 	}
 
+
 	public String toString(){
 		return "\u001B[32m"+name+"\u001B[0m";
 	}

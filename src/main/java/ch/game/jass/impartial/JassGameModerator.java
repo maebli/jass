@@ -48,8 +48,8 @@ public class JassGameModerator{
 	}
 
 	public static void letPlayerChooseGameMode(){
-		System.out.println(nextPlayer+" chooses mode "+gameMode);
 		gameMode=nextPlayer.chooseGameMode();
+		System.out.println(nextPlayer+" chooses mode "+gameMode);
 	}
 
 	public static void setGameMode(Jass.GameMode mode) {
@@ -97,6 +97,24 @@ public class JassGameModerator{
     	return (gameMode!=Jass.GameMode.OBEN.ordinal()) && 
     			(gameMode !=Jass.GameMode.UNTEN.ordinal());
     }
+
+    public static int getTrumpfSuit(){
+		if(isTrumpfGame()) {
+			if(gameMode == Jass.GameMode.ROSE_TRUMPF.ordinal()) {
+				return JassCard.Suit.SCHELLEN.ordinal();
+			}else if(gameMode == Jass.GameMode.SCHELLE_TRUMPF.ordinal()){
+				return JassCard.Suit.SCHELLEN.ordinal();
+			}else if(gameMode == Jass.GameMode.SCHILTEN_TRUMPF.ordinal()){
+				return JassCard.Suit.SCHILTEN.ordinal();
+			}else if(gameMode == Jass.GameMode.EICHEL_TRUMPF.ordinal()){
+				return JassCard.Suit.EICHEL.ordinal();
+			}
+		}
+		System.err.println(" Not a Trump game!!");
+		System.exit(1);
+
+		return -1;
+	}
 
 	public static void setGameMode(int newGameMode) {
 		gameMode = newGameMode;

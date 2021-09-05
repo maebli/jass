@@ -39,7 +39,7 @@ public class StupidJassPlayer extends BasicJassPlayer {
 
 	@Override
 	public int chooseGameMode() {
-		return Jass.GameMode.OBEN.ordinal();
+		return Jass.GameMode.ROSE_TRUMPF.ordinal();
 	}
 
 }

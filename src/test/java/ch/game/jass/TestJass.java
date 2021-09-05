@@ -2,6 +2,7 @@ package ch.game.jass;
 
 import ch.game.cardgame.CardGameFactory;
 import ch.game.jass.exception.JassCardGameDoesNotExistException;
+import ch.game.jass.impartial.JassGameModerator;
 import ch.game.jass.player.JassPlayer;
 import ch.game.jass.player.JassPlayersBuilder;
 import org.junit.Before;

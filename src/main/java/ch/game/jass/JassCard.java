@@ -1,9 +1,12 @@
 package ch.game.jass;
 
 import ch.game.cardgame.Card;
+import ch.game.jass.exception.JassCardGameDoesNotExistException;
 import ch.game.jass.impartial.JassGameModerator;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 
@@ -34,7 +37,9 @@ public class JassCard implements Card,Comparable<JassCard>{
     private static Map<Integer,Integer> obenValues;
     private static Map<Integer,Integer> untenValues;
     private static Map<Integer,Integer> trumpfValues;
-    
+
+	private static List<Rank> trumpfRanking;
+
     static{
     	Map<Integer,Integer> values=new HashMap<Integer,Integer>();
     	values.put(Rank.C6.ordinal(),0);
@@ -99,6 +104,20 @@ public class JassCard implements Card,Comparable<JassCard>{
     	suitsGerman.put(Suit.SCHILTEN.ordinal(),"Schilten");
     	suitsNames=suitsGerman;
     }
+
+    static{
+    	List<Rank> ranking = new ArrayList<>();
+    	ranking.add(Rank.C6);
+    	ranking.add(Rank.C7);
+		ranking.add(Rank.C8);
+		ranking.add(Rank.BANNER);
+		ranking.add(Rank.OBER);
+		ranking.add(Rank.KOENIG);
+		ranking.add(Rank.ASS);
+		ranking.add(Rank.C9);
+		ranking.add(Rank.UNTER);
+		trumpfRanking=ranking;
+	}
     
     public JassCard(int suit, int rank){
         this.suit = suit;
@@ -130,12 +149,12 @@ public class JassCard implements Card,Comparable<JassCard>{
 		this.rank = rank;
 	}
    
-   public String toString(){
+	public String toString(){
 	   return "\u001B[34m"+suitsNames.get(suit)+" "+
 			   "\u001B[35m"+
 			   ranksNames.get(rank)+
-			    "\u001B[0m";
-   }
+				"\u001B[0m";
+	}
 
 	public enum Rank {
 		C6,
@@ -149,8 +168,13 @@ public class JassCard implements Card,Comparable<JassCard>{
 		ASS
 	}
 
+
+
+
+
 	@Override
 	public int compareTo(JassCard o) {
+
 		if(Jass.GameMode.OBEN.ordinal() ==
 				JassGameModerator.getGameMode()){
 			
@@ -169,30 +193,23 @@ public class JassCard implements Card,Comparable<JassCard>{
 				return -1;
 			}
 			
-		}else if(Jass.GameMode.ROSE_TRUMPF.ordinal() ==
-				JassGameModerator.getGameMode()){
-			
+		}else{
+			int trumpfSuit = JassGameModerator.getTrumpfSuit();
 			if(o.getSuit()==suit){
-				return rank-o.getRank();
+				if(suit == trumpfSuit){
+					return trumpfRanking.indexOf(suit) -trumpfRanking.indexOf(o.getSuit());
+				}else {
+					return rank - o.getRank();
+				}
 			}else{
-				if(o.getSuit()==Suit.ROSEN.ordinal()){
+				if(o.getSuit()==trumpfSuit){
 					return 1;
 				}else{
 					return -1;
 				}
 			}
-			
-		}else if(Jass.GameMode.SCHELLE_TRUMPF.ordinal() ==
-				JassGameModerator.getGameMode()){
-			
-		}else if(Jass.GameMode.SCHILTE_TRUMPF.ordinal() ==
-				JassGameModerator.getGameMode()){
-			
-		}else if(Jass.GameMode.EICHEL_TRUMPF.ordinal() ==
-				JassGameModerator.getGameMode()){
-			
 		}
-		return 0;
+
 	}
 	
 	int getValue(){
@@ -214,7 +231,7 @@ public class JassCard implements Card,Comparable<JassCard>{
 			if(suit==Suit.SCHELLEN.ordinal()){
 				return trumpfValues.get(rank);
 			}
-		}else if(Jass.GameMode.SCHILTE_TRUMPF.ordinal() ==
+		}else if(Jass.GameMode.SCHILTEN_TRUMPF.ordinal() ==
 				JassGameModerator.getGameMode()){
 			if(suit==Suit.SCHILTEN.ordinal()){
 				return trumpfValues.get(rank);

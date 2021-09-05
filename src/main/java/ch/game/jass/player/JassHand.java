@@ -7,6 +7,7 @@ import ch.game.jass.exception.JassCardSetIsFullException;
 
 import java.util.HashSet;
 import java.util.Set;
+import java.util.stream.Stream;
 
 public class JassHand{
 	
@@ -48,6 +49,17 @@ public class JassHand{
 		}
 		return false;
 	}
+
+	public boolean containsCard(JassCard card){
+		for(Card c:cards){
+			if(c.getSuit() == card.getSuit() &&
+					c.getRank() == card.getRank()){
+				return true;
+			}
+		}
+		return false;
+	}
+
 	
 	public String toString(){
 		String cardsAsString="Cards \r\n \n";
@@ -56,6 +68,10 @@ public class JassHand{
 			cardsAsString+="\r\n";
 		}
 		return cardsAsString;
+	}
+
+	public Stream<JassCard> stream(){
+		return cards.stream();
 	}
 
 }
