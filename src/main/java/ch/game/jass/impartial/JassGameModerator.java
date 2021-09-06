@@ -101,7 +101,7 @@ public class JassGameModerator{
     public static int getTrumpfSuit(){
 		if(isTrumpfGame()) {
 			if(gameMode == Jass.GameMode.ROSE_TRUMPF.ordinal()) {
-				return JassCard.Suit.SCHELLEN.ordinal();
+				return JassCard.Suit.ROSEN.ordinal();
 			}else if(gameMode == Jass.GameMode.SCHELLE_TRUMPF.ordinal()){
 				return JassCard.Suit.SCHELLEN.ordinal();
 			}else if(gameMode == Jass.GameMode.SCHILTEN_TRUMPF.ordinal()){

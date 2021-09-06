@@ -1,5 +1,7 @@
 package ch.game.jass;
 
+import ch.game.jass.impartial.JassGameModerator;
+
 import java.util.ArrayList;
 import java.util.Collections;
 
@@ -48,7 +50,10 @@ public class JassTrick{
 		ArrayList<JassCard> sortedTrick = new ArrayList<JassCard>();
 
 		for(JassCard card:trick){
+			if(card.getSuit()==trick.get(0).getSuit()||
+			   card.getSuit()== JassGameModerator.getTrumpfSuit()) {
 				sortedTrick.add(card);
+			}
 		}
 		
 		Collections.sort(sortedTrick);

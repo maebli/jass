@@ -19,7 +19,7 @@ public class Jass implements CardGame{
     	OBEN,
     	UNTEN,
     	SCHELLE_TRUMPF,
-    	SCHILTE_TRUMPF,
+		SCHILTEN_TRUMPF,
     	EICHEL_TRUMPF,
     	ROSE_TRUMPF
     }
@@ -34,6 +34,8 @@ public class Jass implements CardGame{
 		
 		JassGameModerator.dealHands(table);
 		JassGameModerator.letPlayerChooseGameMode();
+
+
 
         for (int i = 0; i < JassHand.JASS_HAND_SIZE; i++) {
 			System.out.println("\u001B[31m Round "+(i+1)+"\u001B[0m");

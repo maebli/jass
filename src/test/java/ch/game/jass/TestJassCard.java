@@ -25,7 +25,7 @@ public class TestJassCard {
 		JassCard eichelAss = new JassCard(JassCard.Suit.EICHEL, JassCard.Rank.ASS);
 		JassCard eichelKoenig = new JassCard(JassCard.Suit.EICHEL, JassCard.Rank.KOENIG);
 		JassCard rosenAss = new JassCard(JassCard.Suit.ROSEN, JassCard.Rank.ASS);
-		
+		JassCard eichelUnter = new JassCard(JassCard.Suit.EICHEL,JassCard.Rank.UNTER);
 		JassGameModerator.setGameMode(Jass.GameMode.OBEN);
 		
 		assertTrue(eichelAss.compareTo(eichelKoenig)==1);
@@ -38,6 +38,12 @@ public class TestJassCard {
 		
 		assertTrue(eichelAss.compareTo(eichelKoenig)==-1);
 		assertTrue(eichelKoenig.compareTo(eichelAss)==1);
+
+
+		JassGameModerator.setGameMode(Jass.GameMode.EICHEL_TRUMPF);
+		assertTrue(JassGameModerator.getGameMode() == Jass.GameMode.EICHEL_TRUMPF.ordinal());
+
+		assertTrue( eichelUnter.compareTo(eichelAss)==1);
 		
 		
 		

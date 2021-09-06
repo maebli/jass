@@ -197,15 +197,16 @@ public class JassCard implements Card,Comparable<JassCard>{
 			int trumpfSuit = JassGameModerator.getTrumpfSuit();
 			if(o.getSuit()==suit){
 				if(suit == trumpfSuit){
-					return trumpfRanking.indexOf(suit) -trumpfRanking.indexOf(o.getSuit());
+					int out=trumpfRanking.get(rank).ordinal() -trumpfRanking.get(o.getRank()).ordinal();
+					return out;
 				}else {
 					return rank - o.getRank();
 				}
 			}else{
 				if(o.getSuit()==trumpfSuit){
-					return 1;
-				}else{
 					return -1;
+				}else{
+					return 1;
 				}
 			}
 		}
