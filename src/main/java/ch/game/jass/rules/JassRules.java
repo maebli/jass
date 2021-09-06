@@ -16,7 +16,8 @@ public class JassRules {
 	private static Set<JassRule> jassRules=new HashSet<JassRule>();
 	
 	static{
-		jassRules.add(new CorrectSuitMustBePlayed());
+		jassRules.add(new CorrectSuitMustBePlayedRule());
+		jassRules.add(new UnderTrumpForbiddenRule());
 	}
 	
 	public static Set<JassRule> getRules(){

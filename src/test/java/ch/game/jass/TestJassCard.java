@@ -43,7 +43,7 @@ public class TestJassCard {
 		JassGameModerator.setGameMode(Jass.GameMode.EICHEL_TRUMPF);
 		assertTrue(JassGameModerator.getGameMode() == Jass.GameMode.EICHEL_TRUMPF.ordinal());
 
-		assertTrue( eichelUnter.compareTo(eichelAss)==1);
+		assertTrue( eichelUnter.compareTo(eichelAss)>0);
 		
 		
 		

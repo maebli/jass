@@ -6,7 +6,7 @@ import ch.game.jass.player.JassHand;
 import ch.game.jass.player.JassMove;
 import ch.game.jass.player.JassPlayer;
 
-public class CorrectSuitMustBePlayed implements JassRule {
+public class CorrectSuitMustBePlayedRule implements JassRule {
 
     @Override
     public boolean followsRule(JassMove move) {
