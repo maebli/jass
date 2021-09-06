@@ -1,4 +1,25 @@
-# Jass Game
+#  jass-cli 🎮
+Version: 0.0.1
+
+## 🖊️ Todo
+
+1. Add Wis
+2. Add "Schiebä" as option
+3. Make sure person with "Panner 10" starts
+4. Add "help"
+5. Publish artifact
+
+# 🔨 How to Build
+
+The project uses Gradle as a build system and was developed using IntellJ IDE.
+To get started clone the repository and import it into intelliJ. 
+
+There is a CLI names `JassCLI` which you can run to play Jass from the
+command line. 
+
+# 🙋 Contribute
+
+If you want to contribute, it would be easiest to start by adding new `Junit` tests. 
 
 ## Example Output 
 
