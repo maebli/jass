@@ -26,6 +26,9 @@ public class CorrectSuitMustBePlayedRule implements JassRule {
             if(move.getCard().getSuit() == suitOfTrick) return true;
 
             int suitOfTrump = JassGameModerator.getTrumpfSuit();
+
+            if(move.getCard().getSuit()== suitOfTrump) return true;
+
             JassCard bestTrump = new JassCard(suitOfTrump, JassCard.Rank.UNTER.ordinal());
             int numberOfTrumps = (int) hand.stream().filter(c -> c.getRank() == suitOfTrick).count();
 

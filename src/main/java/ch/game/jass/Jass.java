@@ -10,7 +10,12 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 public class Jass implements CardGame{
-	
+
+	private static final int MAJOR_VERSION = 0;
+	private static final int MINOR_VERSION = 0;
+	private static final int PATCH_VERSION = 1;
+
+
 	private static final Logger LOGGER = Logger.getLogger(Jass.class.getName());
 
 	private static final String GAME_NAME = "Jass";
@@ -43,6 +48,11 @@ public class Jass implements CardGame{
 		}
 		
 		System.out.println(JassScoreKeeper.getGameScoreAsString(table));
+	}
+
+	@Override
+	public String getVersion() {
+		return "v"+MAJOR_VERSION+"."+MINOR_VERSION+"."+PATCH_VERSION;
 	}
 
 	@Override

@@ -18,13 +18,16 @@ public class JassCLI {
 	
 	public static void main(String[] args){
 
+
 		try {
 			jass=(Jass) CardGameFactory.make("Jass");
 		} catch (JassCardGameDoesNotExistException e) {
 			System.err.println("Game doesn't exist..");
 			System.exit(0);
 		}
-		
+
+		System.out.println("Starting Jass Computer Version "+jass.getVersion());
+
 		LOGGER.setLevel(Level.OFF);
 		
 		JassPlayersBuilder playersBuilder=new JassPlayersBuilder();
