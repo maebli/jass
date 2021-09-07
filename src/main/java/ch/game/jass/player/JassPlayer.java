@@ -12,5 +12,6 @@ public interface JassPlayer {
 	boolean canPlaySuit(int suit);
 	JassCard playCard(JassTrick trick);
 	int chooseGameMode();
+	boolean decidedToChooseGameMode();
 	
 }

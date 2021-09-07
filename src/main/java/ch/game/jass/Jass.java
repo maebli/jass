@@ -26,7 +26,7 @@ public class Jass implements CardGame{
     	SCHELLE_TRUMPF,
 		SCHILTEN_TRUMPF,
     	EICHEL_TRUMPF,
-    	ROSE_TRUMPF
+    	ROSE_TRUMPF,
     }
     
     private JassTable table;
@@ -38,8 +38,7 @@ public class Jass implements CardGame{
 	public void play() {
 		
 		JassGameModerator.dealHands(table);
-		JassGameModerator.letPlayerChooseGameMode();
-
+		JassGameModerator.letPlayerChooseGameMode(table);
 
 
         for (int i = 0; i < JassHand.JASS_HAND_SIZE; i++) {

@@ -42,4 +42,9 @@ public class StupidJassPlayer extends BasicJassPlayer {
 		return Jass.GameMode.ROSE_TRUMPF.ordinal();
 	}
 
+	@Override
+	public boolean decidedToChooseGameMode() {
+		return false;
+	}
+
 }

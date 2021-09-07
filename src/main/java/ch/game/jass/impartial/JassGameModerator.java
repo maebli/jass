@@ -47,9 +47,16 @@ public class JassGameModerator{
 		
 	}
 
-	public static void letPlayerChooseGameMode(){
-		gameMode=nextPlayer.chooseGameMode();
-		System.out.println(nextPlayer+" chooses mode "+gameMode);
+	public static void letPlayerChooseGameMode(JassTable table){
+		if(nextPlayer.decidedToChooseGameMode()) {
+			gameMode = nextPlayer.chooseGameMode();
+			System.out.println(nextPlayer + " chooses mode " + gameMode);
+		}else{
+			System.out.println(nextPlayer + " chooses to let his partner choose the game mode ");
+		}
+		nextPlayer=table.getPlayers().get((table.getPlayers().indexOf(nextPlayer)+2)%3);
+		gameMode = nextPlayer.chooseGameMode();
+		System.out.println(nextPlayer + " chooses mode " + gameMode);
 	}
 
 	public static void setGameMode(Jass.GameMode mode) {
@@ -114,10 +121,6 @@ public class JassGameModerator{
 		System.exit(1);
 
 		return -1;
-	}
-
-	public static void setGameMode(int newGameMode) {
-		gameMode = newGameMode;
 	}
 
 

@@ -42,6 +42,11 @@ public class HumanJassPlayer extends BasicJassPlayer {
 		// TODO Auto-generated method stub
 		return 0;
 	}
+
+	@Override
+	public boolean decidedToChooseGameMode(){
+		return true;
+	}
 	
 
 }
