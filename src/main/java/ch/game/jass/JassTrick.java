@@ -50,13 +50,21 @@ public class JassTrick{
 		ArrayList<JassCard> sortedTrick = new ArrayList<JassCard>();
 
 		for(JassCard card:trick){
-			if(card.getSuit()==trick.get(0).getSuit()||
-			   card.getSuit()== JassGameModerator.getTrumpfSuit()) {
-				sortedTrick.add(card);
+			if(JassGameModerator.isTrumpfGame()) {
+				if (card.getSuit() == trick.get(0).getSuit() ||
+						card.getSuit() == JassGameModerator.getTrumpfSuit()) {
+					sortedTrick.add(card);
+				}
+			}else{
+				if (card.getSuit() == trick.get(0).getSuit()) {
+					sortedTrick.add(card);
+				}
 			}
 		}
 		
 		Collections.sort(sortedTrick);
+
+		System.out.println(sortedTrick);
 		
 		return sortedTrick.get(sortedTrick.size()-1);
 	}

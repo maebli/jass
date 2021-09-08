@@ -15,11 +15,14 @@ public class CorrectSuitMustBePlayedRule implements JassRule {
             return true;
         }
 
+
         JassPlayer player = move.getPlayer();
         JassCard card = move.getCard();
         JassHand hand = player.getHand();
 
         int suitOfTrick = move.getSuitOfTrick();
+
+        if(!player.canPlaySuit(suitOfTrick)) return true;
 
         if (JassGameModerator.isTrumpfGame()) {
 

@@ -25,7 +25,9 @@ public class TestJassCard {
 		JassCard eichelAss = new JassCard(JassCard.Suit.EICHEL, JassCard.Rank.ASS);
 		JassCard eichelKoenig = new JassCard(JassCard.Suit.EICHEL, JassCard.Rank.KOENIG);
 		JassCard rosenAss = new JassCard(JassCard.Suit.ROSEN, JassCard.Rank.ASS);
-		JassCard eichelUnter = new JassCard(JassCard.Suit.EICHEL,JassCard.Rank.UNTER);
+		JassCard rosenUnter = new JassCard(JassCard.Suit.ROSEN, JassCard.Rank.UNTER);
+		JassCard rosenNell = new JassCard(JassCard.Suit.ROSEN, JassCard.Rank.C9);
+
 		JassGameModerator.setGameMode(Jass.GameMode.OBEN);
 		
 		assertTrue(eichelAss.compareTo(eichelKoenig)==1);
@@ -40,12 +42,14 @@ public class TestJassCard {
 		assertTrue(eichelKoenig.compareTo(eichelAss)==1);
 
 
-		JassGameModerator.setGameMode(Jass.GameMode.EICHEL_TRUMPF);
-		assertTrue(JassGameModerator.getGameMode() == Jass.GameMode.EICHEL_TRUMPF.ordinal());
+		JassGameModerator.setGameMode(Jass.GameMode.ROSE_TRUMPF);
+		assertTrue(JassGameModerator.getGameMode() == Jass.GameMode.ROSE_TRUMPF.ordinal());
 
-		assertTrue( eichelUnter.compareTo(eichelAss)>0);
-		
-		
+		assertTrue( rosenUnter.compareTo(rosenAss)>0);
+		assertTrue( rosenAss.compareTo(rosenUnter)<0);
+
+		assertTrue( rosenNell.compareTo(rosenAss)>0);
+		assertTrue( rosenAss.compareTo(rosenNell)<0);
 		
 	}
 

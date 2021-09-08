@@ -13,11 +13,13 @@ public class UnderTrumpForbiddenRule implements JassRule {
         if(move.getTrick().size()<=2) return true;
 
         JassCard firstCard = move.getTrick().get().get(0);
+        JassCard winningCard = move.getTrick().getWinningCard();
         int suitOfTrumpf = JassGameModerator.getTrumpfSuit();
 
         if(firstCard.getSuit()==suitOfTrumpf) return true;
 
-        if(move.getTrick().getWinningCard().compareTo(move.getCard()) == -1){
+        if(winningCard.getSuit() == suitOfTrumpf &&
+                (winningCard.compareTo(move.getCard()) == -1)){
             return false;
         }
 

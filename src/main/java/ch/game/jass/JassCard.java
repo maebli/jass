@@ -38,7 +38,7 @@ public class JassCard implements Card,Comparable<JassCard>{
     private static Map<Integer,Integer> untenValues;
     private static Map<Integer,Integer> trumpfValues;
 
-	private static List<Rank> trumpfRanking;
+	private static List<Integer> trumpfRanking;
 
     static{
     	Map<Integer,Integer> values=new HashMap<Integer,Integer>();
@@ -106,16 +106,16 @@ public class JassCard implements Card,Comparable<JassCard>{
     }
 
     static{
-    	List<Rank> ranking = new ArrayList<>();
-    	ranking.add(Rank.C6);
-    	ranking.add(Rank.C7);
-		ranking.add(Rank.C8);
-		ranking.add(Rank.BANNER);
-		ranking.add(Rank.OBER);
-		ranking.add(Rank.KOENIG);
-		ranking.add(Rank.ASS);
-		ranking.add(Rank.C9);
-		ranking.add(Rank.UNTER);
+    	List<Integer> ranking = new ArrayList<>();
+    	ranking.add(Rank.C6.ordinal());
+    	ranking.add(Rank.C7.ordinal());
+		ranking.add(Rank.C8.ordinal());
+		ranking.add(Rank.BANNER.ordinal());
+		ranking.add(Rank.OBER.ordinal());
+		ranking.add(Rank.KOENIG.ordinal());
+		ranking.add(Rank.ASS.ordinal());
+		ranking.add(Rank.C9.ordinal());
+		ranking.add(Rank.UNTER.ordinal());
 		trumpfRanking=ranking;
 	}
     
@@ -197,7 +197,7 @@ public class JassCard implements Card,Comparable<JassCard>{
 			int trumpfSuit = JassGameModerator.getTrumpfSuit();
 			if(o.getSuit()==suit){
 				if(suit == trumpfSuit){
-					int out=trumpfRanking.get(rank).ordinal() -trumpfRanking.get(o.getRank()).ordinal();
+					int out=trumpfRanking.indexOf(rank) -trumpfRanking.indexOf(o.getRank());
 					return out;
 				}else {
 					return rank - o.getRank();
