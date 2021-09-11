@@ -1,5 +1,5 @@
-#  jass-cli 🎮
-Version: 0.0.1
+#  jass-lib 🃏
+Version: 0.0.3
 
 ## 🖊️ Todo
 
@@ -21,7 +21,11 @@ command line.
 
 If you want to contribute, it would be easiest to start by adding new `Junit` tests. 
 
-## Example Output 
+## Example Usage 
+
+See https://github.com/maebli/jass-cli for an example usage
+
+## Example Output of tests
 
 ```
 Max chooses mode 0
