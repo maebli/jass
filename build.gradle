@@ -72,7 +72,5 @@ dependencies {
     testImplementation 'junit:junit:4.13'
 }
 
-test {
-    // Use junit platform for unit tests
-    useJUnitPlatform()
-}
+
+
