@@ -2,16 +2,20 @@ plugins {
     id 'java-library'
     id 'signing'
     id 'maven-publish'
+    id 'java'
 }
 
 group 'ch.games'
-version '0.0.1'
+version '0.0.2'
 
 
 repositories {
     mavenCentral()
 }
 
+dependencies {
+    testImplementation 'junit:junit:4.13'
+}
 
 tasks.named('jar') {
     manifest {
@@ -67,4 +71,29 @@ publishing {
             }
         }
     }
+}
+
+tasks.named('test') {
+    useJUnitPlatform()
+}
+
+sourceSets {
+    main {
+        java {
+            srcDirs = ["lib"]
+        }
+    }
+
+    test {
+        java {
+            srcDirs = ['lib']
+        }
+    }
+
+    javadoc {
+        java {
+            srcDirs = ['lib']
+        }
+    }
+
 }

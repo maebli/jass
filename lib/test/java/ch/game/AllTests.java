@@ -13,5 +13,5 @@ import org.junit.runners.Suite.SuiteClasses;
         TestCardGameFactory.class,
         TestJassCard.class,
         TestHand.class})
-public class LibraryTests {
+public class AllTests {
 }
