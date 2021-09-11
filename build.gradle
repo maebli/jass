@@ -6,15 +6,11 @@ plugins {
 }
 
 group 'ch.games'
-version '0.0.2'
+version '0.0.3'
 
 
 repositories {
     mavenCentral()
-}
-
-dependencies {
-    testImplementation 'junit:junit:4.13'
 }
 
 tasks.named('jar') {
@@ -26,7 +22,6 @@ tasks.named('jar') {
 }
 
 java {
-    withJavadocJar()
     withSourcesJar()
 }
 
@@ -73,27 +68,11 @@ publishing {
     }
 }
 
-tasks.named('test') {
-    useJUnitPlatform()
+dependencies {
+    testImplementation 'junit:junit:4.13'
 }
 
-sourceSets {
-    main {
-        java {
-            srcDirs = ["lib"]
-        }
-    }
-
-    test {
-        java {
-            srcDirs = ['lib']
-        }
-    }
-
-    javadoc {
-        java {
-            srcDirs = ['lib']
-        }
-    }
-
+test {
+    // Use junit platform for unit tests
+    useJUnitPlatform()
 }
