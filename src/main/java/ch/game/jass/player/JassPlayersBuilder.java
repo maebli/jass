@@ -28,4 +28,8 @@ public class JassPlayersBuilder{
 		return players;
 	}
 
+	public static void setPlayerNumber(int n){
+		player_number=n;
+	}
+
 }
