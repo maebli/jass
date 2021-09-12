@@ -1,5 +1,6 @@
-![](jass.png)
-#  jass-lib 
+
+#  <img src="./jass.png"  width="100" height="100" />  *lib*
+
 Version: 0.0.6
 
 ## 🖊️ Todo
