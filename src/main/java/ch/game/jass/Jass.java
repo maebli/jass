@@ -42,7 +42,6 @@ public class Jass implements CardGame{
 
 
         for (int i = 0; i < JassHand.JASS_HAND_SIZE; i++) {
-			System.out.println("\u001B[31m Round "+(i+1)+"\u001B[0m");
 			JassGameModerator.moderateRound(table);
 		}
 		
