@@ -2,41 +2,30 @@ package ch.game.jass.player;
 
 
 import java.util.ArrayList;
+import java.util.List;
 
 
 public class JassPlayersBuilder{
 
-	boolean humanPlayerInclude=false;
+	private static int player_number = 4;
+	private final static List<String> names=new ArrayList<String>();
+
+	static{
+		names.add("Michael");
+		names.add("Ellie");
+		names.add("Max");
+		names.add("Karen");
+	}
 
 	public ArrayList<JassPlayer> build() {
-		
-		JassPlayer michael;
-		
-		if(humanPlayerInclude){
-			michael=new HumanJassPlayer();
-		}else{
-			michael=new StupidJassPlayer();
-		}
-		michael.assignName("Michael");
-		JassPlayer ellie=new StupidJassPlayer();
-		ellie.assignName("Ellie");
-		JassPlayer max= new StupidJassPlayer();
-		max.assignName("Max");
-		JassPlayer hans= new StupidJassPlayer();
-		hans.assignName("Hans");
-		
+
 		ArrayList<JassPlayer> players = new ArrayList<JassPlayer>();
-		
-		players.add(michael);
-		players.add(ellie);
-		players.add(max);
-		players.add(hans);
-		
+		for(int i=0;i<player_number;i++){
+			JassPlayer p=new StupidJassPlayer();;
+			p.assignName(names.get(i));
+			players.add(p);
+		}
 		return players;
-	}
-	
-	public void activateHumanPlayer(){
-		humanPlayerInclude=true;
 	}
 
 }
