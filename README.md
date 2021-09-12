@@ -1,5 +1,6 @@
-#  jass-lib 🃏
-Version: 0.0.3
+![](jass.png)
+#  jass-lib 
+Version: 0.0.6
 
 ## 🖊️ Todo
 
