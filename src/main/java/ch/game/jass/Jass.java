@@ -13,7 +13,7 @@ public class Jass implements CardGame{
 
 	private static final int MAJOR_VERSION = 0;
 	private static final int MINOR_VERSION = 0;
-	private static final int PATCH_VERSION = 1;
+	private static final int PATCH_VERSION = 6;
 
 
 	private static final Logger LOGGER = Logger.getLogger(Jass.class.getName());
@@ -61,9 +61,27 @@ public class Jass implements CardGame{
 
 	@Override
 	public void setPlayers(JassTable table) {
-        this.table=table;
+		this.table=table;
 	}
 
+	public static String  getGameModeAsString(GameMode mode){
+		switch(mode){
+			case OBEN:
+				return "Oben";
+			case UNTEN:
+				return "Unten";
+			case SCHELLE_TRUMPF:
+				return "Schellen Trumpf";
+			case SCHILTEN_TRUMPF:
+				return "Schilten Trumpf";
+			case EICHEL_TRUMPF:
+				return "Eichel Trumpf";
+			case ROSE_TRUMPF:
+				return "Rosen Trumpf";
+		}
+
+		return "Unkown";
+	}
 
 	
 	

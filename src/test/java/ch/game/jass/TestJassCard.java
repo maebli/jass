@@ -43,13 +43,15 @@ public class TestJassCard {
 
 
 		JassGameModerator.setGameMode(Jass.GameMode.ROSE_TRUMPF);
-		assertTrue(JassGameModerator.getGameMode() == Jass.GameMode.ROSE_TRUMPF.ordinal());
+		assertTrue(JassGameModerator.getGameMode() == Jass.GameMode.ROSE_TRUMPF);
 
 		assertTrue( rosenUnter.compareTo(rosenAss)>0);
 		assertTrue( rosenAss.compareTo(rosenUnter)<0);
 
 		assertTrue( rosenNell.compareTo(rosenAss)>0);
 		assertTrue( rosenAss.compareTo(rosenNell)<0);
+
+		assertTrue( rosenAss.compareTo(eichelAss)<0);
 		
 	}
 

@@ -175,7 +175,7 @@ public class JassCard implements Card,Comparable<JassCard>{
 	@Override
 	public int compareTo(JassCard o) {
 
-		if(Jass.GameMode.OBEN.ordinal() ==
+		if(Jass.GameMode.OBEN ==
 				JassGameModerator.getGameMode()){
 			
 			if(o.getSuit()==suit){
@@ -184,7 +184,7 @@ public class JassCard implements Card,Comparable<JassCard>{
 				return -1;
 			}
 			
-		}else if(Jass.GameMode.UNTEN.ordinal() ==
+		}else if(Jass.GameMode.UNTEN ==
 				JassGameModerator.getGameMode()){
 			
 			if(o.getSuit()==suit){
@@ -214,30 +214,30 @@ public class JassCard implements Card,Comparable<JassCard>{
 	}
 	
 	int getValue(){
-		if(Jass.GameMode.OBEN.ordinal() ==
+		if(Jass.GameMode.OBEN ==
 				JassGameModerator.getGameMode()){
 			return obenValues.get(rank);
-		}else if(Jass.GameMode.UNTEN.ordinal() ==
+		}else if(Jass.GameMode.UNTEN ==
 				JassGameModerator.getGameMode()){
 			return untenValues.get(rank);
 		}else if(rank==Rank.C8.ordinal()){
 			return 0;
-		}else if(Jass.GameMode.ROSE_TRUMPF.ordinal() ==
+		}else if(Jass.GameMode.ROSE_TRUMPF ==
 				JassGameModerator.getGameMode()){
 			if(suit==Suit.ROSEN.ordinal()){
 				return trumpfValues.get(rank);
 			}
-		}else if(Jass.GameMode.SCHELLE_TRUMPF.ordinal() ==
+		}else if(Jass.GameMode.SCHELLE_TRUMPF ==
 				JassGameModerator.getGameMode()){
 			if(suit==Suit.SCHELLEN.ordinal()){
 				return trumpfValues.get(rank);
 			}
-		}else if(Jass.GameMode.SCHILTEN_TRUMPF.ordinal() ==
+		}else if(Jass.GameMode.SCHILTEN_TRUMPF ==
 				JassGameModerator.getGameMode()){
 			if(suit==Suit.SCHILTEN.ordinal()){
 				return trumpfValues.get(rank);
 			}
-		}else if(Jass.GameMode.EICHEL_TRUMPF.ordinal() ==
+		}else if(Jass.GameMode.EICHEL_TRUMPF ==
 				JassGameModerator.getGameMode()){
 			if(suit==Suit.EICHEL.ordinal()){
 				return trumpfValues.get(rank);

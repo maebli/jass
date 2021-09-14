@@ -1,5 +1,6 @@
 package ch.game.jass.player;
 
+import ch.game.jass.Jass;
 import ch.game.jass.JassCard;
 import ch.game.jass.JassTrick;
 import ch.game.jass.exception.JassCardSetIsFullException;
@@ -47,5 +48,5 @@ public abstract class BasicJassPlayer implements JassPlayer {
 	}
 
 	@Override
-	public abstract int chooseGameMode();
+	public abstract Jass.GameMode chooseGameMode();
 }

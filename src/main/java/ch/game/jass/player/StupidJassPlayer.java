@@ -38,8 +38,8 @@ public class StupidJassPlayer extends BasicJassPlayer {
 	}
 
 	@Override
-	public int chooseGameMode() {
-		return Jass.GameMode.ROSE_TRUMPF.ordinal();
+	public Jass.GameMode chooseGameMode() {
+		return Jass.GameMode.values()[(int)(Math.random()*Jass.GameMode.values().length)];
 	}
 
 	@Override

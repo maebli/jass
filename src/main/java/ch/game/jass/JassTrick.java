@@ -64,7 +64,6 @@ public class JassTrick{
 		
 		Collections.sort(sortedTrick);
 
-		System.out.println(sortedTrick);
 		
 		return sortedTrick.get(sortedTrick.size()-1);
 	}

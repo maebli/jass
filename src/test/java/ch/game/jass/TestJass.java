@@ -34,7 +34,7 @@ public class TestJass {
 		
 		LOGGER.setLevel(Level.OFF);
 		
-		LOGGER.fine("Setting up Jass Test");
+		LOGGER.fine("Setting up	 Jass Test");
 
 		
 		jass=(Jass) CardGameFactory.make("Jass");

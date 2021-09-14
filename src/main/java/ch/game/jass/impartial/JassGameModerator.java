@@ -22,7 +22,7 @@ public class JassGameModerator{
 			new JassCard(JassCard.Suit.EICHEL.ordinal()
 					,JassCard.Rank.BANNER.ordinal());
     
-    private static int gameMode;
+    private static Jass.GameMode gameMode;
 
 	public static void dealHands(JassTable table) {
 		
@@ -56,11 +56,12 @@ public class JassGameModerator{
 		}
 		nextPlayer=table.getPlayers().get((table.getPlayers().indexOf(nextPlayer)+2)%3);
 		gameMode = nextPlayer.chooseGameMode();
-		System.out.println(nextPlayer + " chooses mode " + gameMode);
+
+		System.out.println(nextPlayer + " chooses mode " + Jass.getGameModeAsString(gameMode));
 	}
 
 	public static void setGameMode(Jass.GameMode mode) {
-		gameMode = mode.ordinal();
+		gameMode = mode;
 	}
 
 	public static void moderateRound(JassTable table) {
@@ -96,24 +97,24 @@ public class JassGameModerator{
 		return nextPlayer;
 	}
 	
-    public static int getGameMode() {
+    public static Jass.GameMode getGameMode() {
 		return gameMode;
 	}
     
     public static boolean isTrumpfGame(){
-    	return (gameMode!=Jass.GameMode.OBEN.ordinal()) && 
-    			(gameMode !=Jass.GameMode.UNTEN.ordinal());
+    	return (gameMode!=Jass.GameMode.OBEN) &&
+    			(gameMode !=Jass.GameMode.UNTEN);
     }
 
     public static int getTrumpfSuit(){
 		if(isTrumpfGame()) {
-			if(gameMode == Jass.GameMode.ROSE_TRUMPF.ordinal()) {
+			if(gameMode == Jass.GameMode.ROSE_TRUMPF) {
 				return JassCard.Suit.ROSEN.ordinal();
-			}else if(gameMode == Jass.GameMode.SCHELLE_TRUMPF.ordinal()){
+			}else if(gameMode == Jass.GameMode.SCHELLE_TRUMPF){
 				return JassCard.Suit.SCHELLEN.ordinal();
-			}else if(gameMode == Jass.GameMode.SCHILTEN_TRUMPF.ordinal()){
+			}else if(gameMode == Jass.GameMode.SCHILTEN_TRUMPF){
 				return JassCard.Suit.SCHILTEN.ordinal();
-			}else if(gameMode == Jass.GameMode.EICHEL_TRUMPF.ordinal()){
+			}else if(gameMode == Jass.GameMode.EICHEL_TRUMPF){
 				return JassCard.Suit.EICHEL.ordinal();
 			}
 		}

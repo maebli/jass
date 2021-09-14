@@ -1,6 +1,7 @@
 package ch.game.jass.player;
 
 
+import ch.game.jass.Jass;
 import ch.game.jass.JassCard;
 import ch.game.jass.JassTrick;
 
@@ -11,7 +12,7 @@ public interface JassPlayer {
 	JassHand getHand();
 	boolean canPlaySuit(int suit);
 	JassCard playCard(JassTrick trick);
-	int chooseGameMode();
+	Jass.GameMode chooseGameMode();
 	boolean decidedToChooseGameMode();
 	
 }

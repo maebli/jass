@@ -10,7 +10,7 @@ public class TestCardGameFactory {
 
 	
 	@Test(expected=JassCardGameDoesNotExistException.class)
-	public void TestCreatinOfNonExistantCardGame() throws JassCardGameDoesNotExistException{
+	public void TestCreatingOfNonExistantCardGame() throws JassCardGameDoesNotExistException{
 		CardGameFactory.make("Im not a Game Name.");
 	}
 	
