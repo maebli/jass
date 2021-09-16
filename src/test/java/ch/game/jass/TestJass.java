@@ -17,47 +17,53 @@ import static org.junit.Assert.assertEquals;
 public class TestJass {
 
 	private static final Logger LOGGER = Logger.getLogger("Logger");
-	
-	private Jass jass;
+
 	
 	@Before
 	public void setUp() throws JassCardGameDoesNotExistException{
 		
-		//Handler handler=new StreamHandler(System.out, new SimpleFormatter());
-		
-		// change to Level.INFO for info only
-		// Use System.out only for Game UI
-		
-		//handler.setLevel(Level.OFF); 
-		
-		//LOGGER.addHandler(handler);
-		
 		LOGGER.setLevel(Level.OFF);
-		
 		LOGGER.fine("Setting up	 Jass Test");
-
-		
-		jass=(Jass) CardGameFactory.make("Jass");
-		
-		JassPlayersBuilder playersBuilder=new JassPlayersBuilder();
-		
-		ArrayList<JassPlayer> players = playersBuilder.build();
-		JassTable table = new JassTable(players);
-		
-		jass.setPlayers(table);
-
 	}
 
 
 	
 	@Test
-	public void testPlay(){
+	public void testPlay() throws JassCardGameDoesNotExistException {
+		Jass jass;
+		jass=(Jass) CardGameFactory.make("Jass");
+		ArrayList<JassPlayer> players = JassPlayersBuilder.build();
+		JassTable table = new JassTable(players);
+		jass.setPlayers(table);
 		jass.play();
+	}
+
+	@Test
+	public void multipleGames()  {
+		for(int i=0;i<6;i++){
+			new Thread(() -> {
+				try {
+					Jass jass=(Jass) CardGameFactory.make("Jass");
+					ArrayList<JassPlayer> players = JassPlayersBuilder.build();
+					JassTable table = new JassTable(players);
+					jass.setPlayers(table);
+					jass.play();
+				} catch (JassCardGameDoesNotExistException e) {
+					e.printStackTrace();
+				}
+			}).start();
+
+		}
+		try {
+			Thread.sleep(100);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
 	}
 	
 	@Test
 	public void testName(){
-		assertEquals("Jass",jass.getName());
+		assertEquals("Jass",new Jass().getName());
 	}
 
 }

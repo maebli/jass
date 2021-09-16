@@ -36,16 +36,20 @@ public class Jass implements CardGame{
 	}
 
 	public void play() {
-		
-		JassGameModerator.dealHands(table);
-		JassGameModerator.letPlayerChooseGameMode(table);
 
+		JassGameModerator mod = new JassGameModerator();
+		JassScoreKeeper keeper = new JassScoreKeeper();
+
+		mod.registerScoreKeeper(keeper);
+		mod.dealHands(table);
+		mod.letPlayerChooseGameMode(table);
 
         for (int i = 0; i < JassHand.JASS_HAND_SIZE; i++) {
-			JassGameModerator.moderateRound(table);
+			mod.moderateRound(table);
 		}
-		
-		System.out.println(JassScoreKeeper.getGameScoreAsString(table));
+
+		System.out.println(keeper.getGameScoreAsString(table));
+
 	}
 
 	@Override

@@ -11,11 +11,11 @@ import java.util.Map;
 public class JassScoreKeeper {
 
 	
-	static Map<JassPlayer,Integer> playerScores = new HashMap<JassPlayer,Integer>();
+	private Map<JassPlayer,Integer> playerScores = new HashMap<JassPlayer,Integer>();
 	
-	static JassPlayer lastWinner;
+	private JassPlayer lastWinner;
 	
-	public static void addToPile(JassPlayer player, JassTrick trick) {
+	public void addToPile(JassPlayer player, JassTrick trick) {
 		
 		if(playerScores.containsKey(player)){
 			int score=playerScores.get(player);
@@ -28,7 +28,7 @@ public class JassScoreKeeper {
 		lastWinner=player;
 	}
 	
-	public static int getTeamScore(JassPlayer p1, JassPlayer p2){
+	public int getTeamScore(JassPlayer p1, JassPlayer p2){
 		
 		int score=0;
 		
@@ -51,7 +51,7 @@ public class JassScoreKeeper {
 		return score;
 	}
 
-	public static String getGameScoreAsString(JassTable table) {
+	public String getGameScoreAsString(JassTable table) {
 		
 		String score = "";
 		

@@ -17,7 +17,7 @@ public class JassPlayersBuilder{
 		names.add("Karen");
 	}
 
-	public ArrayList<JassPlayer> build() {
+	public static ArrayList<JassPlayer> build() {
 
 		ArrayList<JassPlayer> players = new ArrayList<JassPlayer>();
 		for(int i=0;i<player_number;i++){

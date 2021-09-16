@@ -19,7 +19,7 @@ public class JassUmpire{
 		return moveAbidesByTheRules;
 	}
 
-	public static JassPlayer determineWinner(JassTable table){
+	public static JassPlayer determineWinner(JassTable table,JassGameModerator mod){
 		
 		JassTrick trick=table.getTrick();
 		
@@ -30,7 +30,7 @@ public class JassUmpire{
 		
 		JassCard winningCard=trick.getWinningCard();
 		int winningPlayerIndex=trick.get().indexOf(winningCard);
-		JassPlayer winner = table.getPlayers(JassGameModerator.getCurrentStartPlayer()).get(winningPlayerIndex);
+		JassPlayer winner = table.getPlayers(mod.getCurrentStartPlayer()).get(winningPlayerIndex);
 		
 		System.out.println(winningCard+" played by "+winner+" wins round.");
 		

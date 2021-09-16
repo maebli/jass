@@ -14,9 +14,9 @@ public class JassGameModerator{
 	
 	private static final Logger LOGGER = Logger.getLogger("Logger");
 	
-	private static JassPlayer nextPlayer;
+	private JassPlayer nextPlayer;
 	
-	private static JassMove nextMove=new JassMove();
+	private JassMove nextMove=new JassMove();
 	
 	private static final JassCard startingCard=
 			new JassCard(JassCard.Suit.EICHEL.ordinal()
@@ -24,8 +24,14 @@ public class JassGameModerator{
     
     private static Jass.GameMode gameMode;
 
-	public static void dealHands(JassTable table) {
-		
+	private JassScoreKeeper scoreKeeper;
+
+	public void registerScoreKeeper(JassScoreKeeper keeper){
+		scoreKeeper = keeper;
+	}
+
+	public void dealHands(JassTable table) {
+
 		JassDeck deck= new JassDeck();
 		deck.shuffle();
 		
@@ -47,7 +53,7 @@ public class JassGameModerator{
 		
 	}
 
-	public static void letPlayerChooseGameMode(JassTable table){
+	public void letPlayerChooseGameMode(JassTable table){
 		if(nextPlayer.decidedToChooseGameMode()) {
 			gameMode = nextPlayer.chooseGameMode();
 			System.out.println(nextPlayer + " chooses mode " + Jass.getGameModeAsString(gameMode));
@@ -64,7 +70,7 @@ public class JassGameModerator{
 		gameMode = mode;
 	}
 
-	public static void moderateRound(JassTable table) {
+	public void moderateRound(JassTable table) {
 		
 		LOGGER.info("Game Mode = "+getGameMode());
 		
@@ -86,14 +92,14 @@ public class JassGameModerator{
 			}
 		}
 		
-		nextPlayer=JassUmpire.determineWinner(table);
-		JassScoreKeeper.addToPile(nextPlayer,table.getTrick());
+		nextPlayer=JassUmpire.determineWinner(table,this);
+		scoreKeeper.addToPile(nextPlayer,table.getTrick());
 		
 		table.resetTrick();
 		
 	}
 	
-	public static JassPlayer getCurrentStartPlayer(){
+	public JassPlayer getCurrentStartPlayer(){
 		return nextPlayer;
 	}
 	
