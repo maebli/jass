@@ -13,7 +13,7 @@ public class Jass implements CardGame{
 
 	private static final int MAJOR_VERSION = 0;
 	private static final int MINOR_VERSION = 0;
-	private static final int PATCH_VERSION = 6;
+	private static final int PATCH_VERSION = 7;
 
 
 	private static final Logger LOGGER = Logger.getLogger(Jass.class.getName());

@@ -51,7 +51,7 @@ public class TestJassCard {
 		assertTrue( rosenNell.compareTo(rosenAss)>0);
 		assertTrue( rosenAss.compareTo(rosenNell)<0);
 
-		assertTrue( rosenAss.compareTo(eichelAss)<0);
+		assertTrue( rosenAss.compareTo(eichelAss)>0);
 		
 	}
 
