@@ -220,8 +220,6 @@ public class JassCard implements Card,Comparable<JassCard>{
 		}else if(Jass.GameMode.UNTEN ==
 				JassGameModerator.getGameMode()){
 			return untenValues.get(rank);
-		}else if(rank==Rank.C8.ordinal()){
-			return 0;
 		}else if(Jass.GameMode.ROSE_TRUMPF ==
 				JassGameModerator.getGameMode()){
 			if(suit==Suit.ROSEN.ordinal()){
