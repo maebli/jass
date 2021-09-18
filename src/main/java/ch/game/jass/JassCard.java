@@ -219,9 +219,11 @@ public class JassCard implements Card,Comparable<JassCard>{
 				table.getGameMode()){
 			return obenValues.get(rank);
 		}else if(JassTable.GameMode.UNTEN ==
-				table.getGameMode()){
+				table.getGameMode()) {
 			return untenValues.get(rank);
-		}else if(JassTable.GameMode.ROSE_TRUMPF ==
+		}else if(rank == JassCard.Rank.C8.ordinal()) {
+			return 0;
+		} if(JassTable.GameMode.ROSE_TRUMPF ==
 				table.getGameMode()){
 			if(suit==Suit.ROSEN.ordinal()){
 				return trumpfValues.get(rank);
