@@ -44,7 +44,8 @@ public class StupidJassPlayer extends BasicJassPlayer {
 
 	@Override
 	public boolean decidedToChooseGameMode() {
-		return false;
+
+		return (Math.random()*2)>1;
 	}
 
 }

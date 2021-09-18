@@ -57,12 +57,11 @@ public class JassGameModerator{
 	public void letPlayerChooseGameMode(JassTable table){
 		if(nextPlayer.decidedToChooseGameMode()) {
 			table.setGameMode( nextPlayer.chooseGameMode());
-			System.out.println(nextPlayer + " chooses mode " + JassTable.getGameModeAsString(table.getGameMode()));
 		}else{
 			System.out.println(nextPlayer + " chooses to let his partner choose the game mode ");
+			nextPlayer=table.getPlayers().get((table.getPlayers().indexOf(nextPlayer)+2)%3);
+			table.setGameMode(nextPlayer.chooseGameMode());
 		}
-		nextPlayer=table.getPlayers().get((table.getPlayers().indexOf(nextPlayer)+2)%3);
-		table.setGameMode(nextPlayer.chooseGameMode());
 
 		System.out.println(nextPlayer + " chooses mode " + JassTable.getGameModeAsString(table.getGameMode()));
 	}
