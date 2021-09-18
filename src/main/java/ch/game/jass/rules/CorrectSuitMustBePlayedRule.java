@@ -1,6 +1,7 @@
 package ch.game.jass.rules;
 
 import ch.game.jass.JassCard;
+import ch.game.jass.JassTable;
 import ch.game.jass.impartial.JassGameModerator;
 import ch.game.jass.player.JassHand;
 import ch.game.jass.player.JassMove;
@@ -9,7 +10,7 @@ import ch.game.jass.player.JassPlayer;
 public class CorrectSuitMustBePlayedRule implements JassRule {
 
     @Override
-    public boolean followsRule(JassMove move) {
+    public boolean followsRule(JassMove move, JassTable.GameMode mode) {
 
         if (move.getTrick().isEmtpy()) {
             return true;
@@ -24,11 +25,11 @@ public class CorrectSuitMustBePlayedRule implements JassRule {
 
         if(!player.canPlaySuit(suitOfTrick)) return true;
 
-        if (JassGameModerator.isTrumpfGame()) {
+        if (JassTable.isTrumpfGame(mode)) {
 
             if(move.getCard().getSuit() == suitOfTrick) return true;
 
-            int suitOfTrump = JassGameModerator.getTrumpfSuit();
+            int suitOfTrump = JassTable.getTrumpfSuit(mode);
 
             if(move.getCard().getSuit()== suitOfTrump) return true;
 

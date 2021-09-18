@@ -45,14 +45,14 @@ public class JassTrick{
 		trick.clear();
 	}
 	
-	public JassCard getWinningCard(){
+	public JassCard getWinningCard(JassTable.GameMode gameMode){
 		
 		ArrayList<JassCard> sortedTrick = new ArrayList<JassCard>();
 
 		for(JassCard card:trick){
-			if(JassGameModerator.isTrumpfGame()) {
+			if(JassTable.isTrumpfGame(gameMode)) {
 				if (card.getSuit() == trick.get(0).getSuit() ||
-						card.getSuit() == JassGameModerator.getTrumpfSuit()) {
+						card.getSuit() == JassTable.getTrumpfSuit(gameMode)) {
 					sortedTrick.add(card);
 				}
 			}else{

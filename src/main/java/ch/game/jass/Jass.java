@@ -19,15 +19,6 @@ public class Jass implements CardGame{
 	private static final Logger LOGGER = Logger.getLogger(Jass.class.getName());
 
 	private static final String GAME_NAME = "Jass";
-
-    public enum GameMode{
-    	OBEN,
-    	UNTEN,
-    	SCHELLE_TRUMPF,
-		SCHILTEN_TRUMPF,
-    	EICHEL_TRUMPF,
-    	ROSE_TRUMPF,
-    }
     
     private JassTable table;
     
@@ -66,25 +57,6 @@ public class Jass implements CardGame{
 	@Override
 	public void setPlayers(JassTable table) {
 		this.table=table;
-	}
-
-	public static String  getGameModeAsString(GameMode mode){
-		switch(mode){
-			case OBEN:
-				return "Oben";
-			case UNTEN:
-				return "Unten";
-			case SCHELLE_TRUMPF:
-				return "Schellen Trumpf";
-			case SCHILTEN_TRUMPF:
-				return "Schilten Trumpf";
-			case EICHEL_TRUMPF:
-				return "Eichel Trumpf";
-			case ROSE_TRUMPF:
-				return "Rosen Trumpf";
-		}
-
-		return "Unkown";
 	}
 
 	

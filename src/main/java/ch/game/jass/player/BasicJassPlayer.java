@@ -1,7 +1,9 @@
 package ch.game.jass.player;
 
+import ch.game.cardgame.TableView;
 import ch.game.jass.Jass;
 import ch.game.jass.JassCard;
+import ch.game.jass.JassTable;
 import ch.game.jass.JassTrick;
 import ch.game.jass.exception.JassCardSetIsFullException;
 
@@ -9,7 +11,8 @@ public abstract class BasicJassPlayer implements JassPlayer {
 
 	private JassHand hand;
 	private String name = "Unnamed Jassplayer";
-	
+	private TableView tableView;
+
 	public BasicJassPlayer(){
 		this.hand=new JassHand();
 	}
@@ -48,5 +51,14 @@ public abstract class BasicJassPlayer implements JassPlayer {
 	}
 
 	@Override
-	public abstract Jass.GameMode chooseGameMode();
+	public abstract JassTable.GameMode chooseGameMode();
+
+	@Override
+	public void giveTableView(TableView tableView){
+		this.tableView = tableView;
+	}
+
+	public TableView getTableView() {
+		return tableView;
+	}
 }

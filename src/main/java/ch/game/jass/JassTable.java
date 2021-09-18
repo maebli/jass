@@ -1,13 +1,24 @@
 package ch.game.jass;
 
 
+import ch.game.cardgame.TableView;
 import ch.game.jass.player.JassPlayer;
 
 import java.util.ArrayList;
 
 
-public class JassTable{
-	
+public class JassTable implements TableView {
+
+	private JassTable.GameMode gameMode;
+	public enum GameMode{
+		OBEN,
+		UNTEN,
+		SCHELLE_TRUMPF,
+		SCHILTEN_TRUMPF,
+		EICHEL_TRUMPF,
+		ROSE_TRUMPF,
+	}
+
 	private static final int MAX_PLAYERS_AT_JASS_TABLE=4;
     private ArrayList<JassPlayer> players;
     
@@ -29,8 +40,15 @@ public class JassTable{
     	if(players.size()!=MAX_PLAYERS_AT_JASS_TABLE) {
     		System.exit(0);
     	}
+		for(JassPlayer player :players){
+			player.giveTableView(this);
+		}
     	this.players=players;
     }
+
+	public JassTable(){
+
+	}
     
     public ArrayList<JassPlayer> getPlayers(){
     	return players;
@@ -62,6 +80,56 @@ public class JassTable{
 	public JassTrick getTrick() {
 		return this.trick;
 	}
-    
+
+	public static String  getGameModeAsString(GameMode mode){
+		switch(mode){
+			case OBEN:
+				return "Oben";
+			case UNTEN:
+				return "Unten";
+			case SCHELLE_TRUMPF:
+				return "Schellen Trumpf";
+			case SCHILTEN_TRUMPF:
+				return "Schilten Trumpf";
+			case EICHEL_TRUMPF:
+				return "Eichel Trumpf";
+			case ROSE_TRUMPF:
+				return "Rosen Trumpf";
+		}
+
+		return "Unkown";
+	}
+
+	public void setGameMode(JassTable.GameMode mode) {
+		gameMode = mode;
+	}
+
+	@Override
+	public JassTable.GameMode getGameMode() {
+		return gameMode;
+	}
+
+	public static boolean isTrumpfGame(JassTable.GameMode mode){
+		return (mode!=JassTable.GameMode.OBEN) &&
+				(mode !=JassTable.GameMode.UNTEN);
+	}
+
+	public static int getTrumpfSuit(JassTable.GameMode mode){
+		if(isTrumpfGame(mode)) {
+			if(mode == JassTable.GameMode.ROSE_TRUMPF) {
+				return JassCard.Suit.ROSEN.ordinal();
+			}else if(mode == JassTable.GameMode.SCHELLE_TRUMPF){
+				return JassCard.Suit.SCHELLEN.ordinal();
+			}else if(mode == JassTable.GameMode.SCHILTEN_TRUMPF){
+				return JassCard.Suit.SCHILTEN.ordinal();
+			}else if(mode == JassTable.GameMode.EICHEL_TRUMPF){
+				return JassCard.Suit.EICHEL.ordinal();
+			}
+		}
+		System.err.println(" Not a Trump game!!");
+		System.exit(1);
+
+		return -1;
+	}
 }
 

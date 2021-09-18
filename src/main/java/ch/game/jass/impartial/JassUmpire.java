@@ -11,15 +11,15 @@ import ch.game.jass.rules.JassRules;
 
 public class JassUmpire{
 
-	public static boolean abidesByTheRules(JassMove nextMove) {
+	public static boolean abidesByTheRules(JassMove nextMove, JassTable.GameMode mode) {
 		boolean moveAbidesByTheRules=true;
 		for (JassRule rule : JassRules.getRules()) {
-            moveAbidesByTheRules &= rule.followsRule(nextMove);
+            moveAbidesByTheRules &= rule.followsRule(nextMove,mode);
 		}
 		return moveAbidesByTheRules;
 	}
 
-	public static JassPlayer determineWinner(JassTable table,JassGameModerator mod){
+	public static JassPlayer determineWinner(JassTable table,JassGameModerator mod, JassTable.GameMode mode){
 		
 		JassTrick trick=table.getTrick();
 		
@@ -28,7 +28,7 @@ public class JassUmpire{
 			System.exit(0);
 		}
 		
-		JassCard winningCard=trick.getWinningCard();
+		JassCard winningCard=trick.getWinningCard(mode);
 		int winningPlayerIndex=trick.get().indexOf(winningCard);
 		JassPlayer winner = table.getPlayers(mod.getCurrentStartPlayer()).get(winningPlayerIndex);
 		

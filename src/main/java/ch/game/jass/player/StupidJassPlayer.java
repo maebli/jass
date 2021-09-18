@@ -1,8 +1,8 @@
 package ch.game.jass.player;
 
 
-import ch.game.jass.Jass;
 import ch.game.jass.JassCard;
+import ch.game.jass.JassTable;
 import ch.game.jass.JassTrick;
 import ch.game.jass.exception.JassCardNotInSetException;
 import ch.game.jass.impartial.JassUmpire;
@@ -22,7 +22,7 @@ public class StupidJassPlayer extends BasicJassPlayer {
 		move.setPlayer(this);
 		for(JassCard card:hand.getAllCards()){
 			move.setCard(card);
-			if(JassUmpire.abidesByTheRules(move)){
+			if(JassUmpire.abidesByTheRules(move,getTableView().getGameMode())){
 				try {
 					hand.removeCard(card);
 				} catch (JassCardNotInSetException e) {
@@ -38,8 +38,8 @@ public class StupidJassPlayer extends BasicJassPlayer {
 	}
 
 	@Override
-	public Jass.GameMode chooseGameMode() {
-		return Jass.GameMode.values()[(int)(Math.random()*Jass.GameMode.values().length)];
+	public JassTable.GameMode chooseGameMode() {
+		return JassTable.GameMode.values()[(int)(Math.random()*JassTable.GameMode.values().length)];
 	}
 
 	@Override

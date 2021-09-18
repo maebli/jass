@@ -1,7 +1,6 @@
 package ch.game.jass;
 
 import ch.game.cardgame.Card;
-import ch.game.jass.exception.JassCardGameDoesNotExistException;
 import ch.game.jass.impartial.JassGameModerator;
 
 import java.util.ArrayList;
@@ -15,6 +14,8 @@ public class JassCard implements Card,Comparable<JassCard>{
     private int suit;
     private int rank;
 
+	private JassTable table;
+
 	@Override
 	public boolean equals(Object o) {
 		if (getClass() == o.getClass()) {
@@ -23,6 +24,10 @@ public class JassCard implements Card,Comparable<JassCard>{
 					(this.suit == card.suit);
 		}
 		return false;
+	}
+
+	public void setTable(JassTable table) {
+		this.table = table;
 	}
 
 	public enum Suit {
@@ -168,15 +173,11 @@ public class JassCard implements Card,Comparable<JassCard>{
 		ASS
 	}
 
-
-
-
-
 	@Override
 	public int compareTo(JassCard o) {
 
-		if(Jass.GameMode.OBEN ==
-				JassGameModerator.getGameMode()){
+		if(JassTable.GameMode.OBEN ==
+				table.getGameMode()){
 			
 			if(o.getSuit()==suit){
 				return rank-o.getRank();
@@ -184,8 +185,8 @@ public class JassCard implements Card,Comparable<JassCard>{
 				return -1;
 			}
 			
-		}else if(Jass.GameMode.UNTEN ==
-				JassGameModerator.getGameMode()){
+		}else if(JassTable.GameMode.UNTEN ==
+				 table.getGameMode()){
 			
 			if(o.getSuit()==suit){
 				return o.getRank()-rank;
@@ -194,7 +195,7 @@ public class JassCard implements Card,Comparable<JassCard>{
 			}
 			
 		}else{
-			int trumpfSuit = JassGameModerator.getTrumpfSuit();
+			int trumpfSuit = JassTable.getTrumpfSuit(table.getGameMode());
 			if(o.getSuit()==suit){
 				if(suit == trumpfSuit){
 					int out=trumpfRanking.indexOf(rank) -trumpfRanking.indexOf(o.getRank());
@@ -214,29 +215,29 @@ public class JassCard implements Card,Comparable<JassCard>{
 	}
 	
 	int getValue(){
-		if(Jass.GameMode.OBEN ==
-				JassGameModerator.getGameMode()){
+		if(JassTable.GameMode.OBEN ==
+				table.getGameMode()){
 			return obenValues.get(rank);
-		}else if(Jass.GameMode.UNTEN ==
-				JassGameModerator.getGameMode()){
+		}else if(JassTable.GameMode.UNTEN ==
+				table.getGameMode()){
 			return untenValues.get(rank);
-		}else if(Jass.GameMode.ROSE_TRUMPF ==
-				JassGameModerator.getGameMode()){
+		}else if(JassTable.GameMode.ROSE_TRUMPF ==
+				table.getGameMode()){
 			if(suit==Suit.ROSEN.ordinal()){
 				return trumpfValues.get(rank);
 			}
-		}else if(Jass.GameMode.SCHELLE_TRUMPF ==
-				JassGameModerator.getGameMode()){
+		}else if(JassTable.GameMode.SCHELLE_TRUMPF ==
+				table.getGameMode()){
 			if(suit==Suit.SCHELLEN.ordinal()){
 				return trumpfValues.get(rank);
 			}
-		}else if(Jass.GameMode.SCHILTEN_TRUMPF ==
-				JassGameModerator.getGameMode()){
+		}else if(JassTable.GameMode.SCHILTEN_TRUMPF ==
+				table.getGameMode()){
 			if(suit==Suit.SCHILTEN.ordinal()){
 				return trumpfValues.get(rank);
 			}
-		}else if(Jass.GameMode.EICHEL_TRUMPF ==
-				JassGameModerator.getGameMode()){
+		}else if(JassTable.GameMode.EICHEL_TRUMPF ==
+				table.getGameMode()){
 			if(suit==Suit.EICHEL.ordinal()){
 				return trumpfValues.get(rank);
 			}

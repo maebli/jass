@@ -21,10 +21,10 @@ public class JassGameModerator{
 	private static final JassCard startingCard=
 			new JassCard(JassCard.Suit.EICHEL.ordinal()
 					,JassCard.Rank.BANNER.ordinal());
-    
-    private static Jass.GameMode gameMode;
+
 
 	private JassScoreKeeper scoreKeeper;
+
 
 	public void registerScoreKeeper(JassScoreKeeper keeper){
 		scoreKeeper = keeper;
@@ -41,6 +41,7 @@ public class JassGameModerator{
 			for(JassPlayer player:table.getPlayers()){
 				i++;
 				JassCard card=deck.removeTopCard();
+				card.setTable(table);
 				player.dealCard(card);
 				LOGGER.info("dealing card "+i+" "+card);
 				if(card.equals(startingCard)){
@@ -55,24 +56,21 @@ public class JassGameModerator{
 
 	public void letPlayerChooseGameMode(JassTable table){
 		if(nextPlayer.decidedToChooseGameMode()) {
-			gameMode = nextPlayer.chooseGameMode();
-			System.out.println(nextPlayer + " chooses mode " + Jass.getGameModeAsString(gameMode));
+			table.setGameMode( nextPlayer.chooseGameMode());
+			System.out.println(nextPlayer + " chooses mode " + JassTable.getGameModeAsString(table.getGameMode()));
 		}else{
 			System.out.println(nextPlayer + " chooses to let his partner choose the game mode ");
 		}
 		nextPlayer=table.getPlayers().get((table.getPlayers().indexOf(nextPlayer)+2)%3);
-		gameMode = nextPlayer.chooseGameMode();
+		table.setGameMode(nextPlayer.chooseGameMode());
 
-		System.out.println(nextPlayer + " chooses mode " + Jass.getGameModeAsString(gameMode));
+		System.out.println(nextPlayer + " chooses mode " + JassTable.getGameModeAsString(table.getGameMode()));
 	}
 
-	public static void setGameMode(Jass.GameMode mode) {
-		gameMode = mode;
-	}
 
 	public void moderateRound(JassTable table) {
 		
-		LOGGER.info("Game Mode = "+getGameMode());
+		LOGGER.info("Game Mode = "+table.getGameMode());
 		
 		for(JassPlayer player:table.getPlayers(nextPlayer)){
 			
@@ -82,7 +80,7 @@ public class JassGameModerator{
 			nextMove.setPlayer(player);
 			nextMove.setTrick(table.getTrick());
 			
-			if(JassUmpire.abidesByTheRules(nextMove)){
+			if(JassUmpire.abidesByTheRules(nextMove,table.getGameMode())){
 				table.playCardToTrick(card);
 				System.out.println(player+" played "+card+" to trick.");
 			}else{
@@ -92,7 +90,7 @@ public class JassGameModerator{
 			}
 		}
 		
-		nextPlayer=JassUmpire.determineWinner(table,this);
+		nextPlayer=JassUmpire.determineWinner(table,this,table.getGameMode());
 		scoreKeeper.addToPile(nextPlayer,table.getTrick());
 		
 		table.resetTrick();
@@ -102,33 +100,8 @@ public class JassGameModerator{
 	public JassPlayer getCurrentStartPlayer(){
 		return nextPlayer;
 	}
-	
-    public static Jass.GameMode getGameMode() {
-		return gameMode;
-	}
-    
-    public static boolean isTrumpfGame(){
-    	return (gameMode!=Jass.GameMode.OBEN) &&
-    			(gameMode !=Jass.GameMode.UNTEN);
-    }
 
-    public static int getTrumpfSuit(){
-		if(isTrumpfGame()) {
-			if(gameMode == Jass.GameMode.ROSE_TRUMPF) {
-				return JassCard.Suit.ROSEN.ordinal();
-			}else if(gameMode == Jass.GameMode.SCHELLE_TRUMPF){
-				return JassCard.Suit.SCHELLEN.ordinal();
-			}else if(gameMode == Jass.GameMode.SCHILTEN_TRUMPF){
-				return JassCard.Suit.SCHILTEN.ordinal();
-			}else if(gameMode == Jass.GameMode.EICHEL_TRUMPF){
-				return JassCard.Suit.EICHEL.ordinal();
-			}
-		}
-		System.err.println(" Not a Trump game!!");
-		System.exit(1);
 
-		return -1;
-	}
 
 
 
