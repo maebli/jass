@@ -1,15 +1,16 @@
 package ch.game.jass;
 
 
-import ch.game.cardgame.TableView;
 import ch.game.jass.player.JassPlayer;
 
 import java.util.ArrayList;
+import java.util.List;
 
 
-public class JassTable implements TableView {
+public class JassTable implements JassTableView {
 
 	private JassTable.GameMode gameMode;
+
 	public enum GameMode{
 		OBEN,
 		UNTEN,
@@ -20,7 +21,8 @@ public class JassTable implements TableView {
 	}
 
 	private static final int MAX_PLAYERS_AT_JASS_TABLE=4;
-    private ArrayList<JassPlayer> players;
+
+    private ArrayList<JassTeam> teams = new ArrayList<>();
     
     private JassTrick trick=new JassTrick();
     
@@ -34,7 +36,10 @@ public class JassTable implements TableView {
      *  team a: 0,2
      *  team b: 1,3
      */
-    
+
+	public ArrayList<JassTeam> getTeams() {
+		return teams;
+	}
 
 	public JassTable(ArrayList<JassPlayer> players){
     	if(players.size()!=MAX_PLAYERS_AT_JASS_TABLE) {
@@ -43,7 +48,8 @@ public class JassTable implements TableView {
 		for(JassPlayer player :players){
 			player.giveTableView(this);
 		}
-    	this.players=players;
+    	teams.add(new JassTeam(players.get(0),players.get(2)));
+		teams.add(new JassTeam(players.get(1),players.get(3)));
     }
 
 	public JassTable(){
@@ -51,11 +57,16 @@ public class JassTable implements TableView {
 	}
     
     public ArrayList<JassPlayer> getPlayers(){
-    	return players;
+    	ArrayList<JassPlayer> players = new ArrayList<>();
+		players.addAll(teams.get(0).getPlayers());
+		players.addAll(teams.get(1).getPlayers());
+		return players;
     }
-    
+
     public ArrayList<JassPlayer> getPlayers(JassPlayer firstPlayer){
-    	
+
+		ArrayList<JassPlayer> players = getPlayers();
+
     	int index=players.indexOf(firstPlayer);
     	ArrayList<JassPlayer> orderedVector=new ArrayList<JassPlayer>();
     	
@@ -130,6 +141,26 @@ public class JassTable implements TableView {
 		System.exit(1);
 
 		return -1;
+	}
+
+	public class JassTeam{
+
+		private ArrayList<JassPlayer> players= new ArrayList<>();
+
+		public JassTeam(JassPlayer p1, JassPlayer p2){
+			this.players.add(p1);
+			this.players.add(p2);
+		}
+		public ArrayList<JassPlayer> getPlayers(){
+			return players;
+		}
+
+		@Override
+		public String toString() {
+			return "JassTeam{" +
+					"players=" + players +
+					'}';
+		}
 	}
 }
 

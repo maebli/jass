@@ -1,7 +1,6 @@
 package ch.game.jass.player;
 
-import ch.game.cardgame.TableView;
-import ch.game.jass.Jass;
+import ch.game.jass.JassTableView;
 import ch.game.jass.JassCard;
 import ch.game.jass.JassTable;
 import ch.game.jass.JassTrick;
@@ -11,7 +10,7 @@ public abstract class BasicJassPlayer implements JassPlayer {
 
 	private JassHand hand;
 	private String name = "Unnamed Jassplayer";
-	private TableView tableView;
+	private JassTableView tableView;
 
 	public BasicJassPlayer(){
 		this.hand=new JassHand();
@@ -54,11 +53,11 @@ public abstract class BasicJassPlayer implements JassPlayer {
 	public abstract JassTable.GameMode chooseGameMode();
 
 	@Override
-	public void giveTableView(TableView tableView){
+	public void giveTableView(JassTableView tableView){
 		this.tableView = tableView;
 	}
 
-	public TableView getTableView() {
+	public JassTableView getTableView() {
 		return tableView;
 	}
 }

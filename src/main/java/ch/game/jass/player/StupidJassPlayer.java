@@ -9,7 +9,6 @@ import ch.game.jass.impartial.JassUmpire;
 
 public class StupidJassPlayer extends BasicJassPlayer {
 
-	
 	public StupidJassPlayer(){
 		super();
 	}
@@ -44,7 +43,6 @@ public class StupidJassPlayer extends BasicJassPlayer {
 
 	@Override
 	public boolean decidedToChooseGameMode() {
-
 		return (Math.random()*2)>1;
 	}
 

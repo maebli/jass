@@ -6,6 +6,7 @@ import ch.game.jass.player.JassPlayer;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 public class JassScoreKeeper {
@@ -28,10 +29,13 @@ public class JassScoreKeeper {
 		lastWinner=player;
 	}
 	
-	public int getTeamScore(JassPlayer p1, JassPlayer p2){
+	public int getTeamScore(JassTable.JassTeam team){
 		
 		int score=0;
-		
+
+		JassPlayer p1 = team.getPlayers().get(0);
+		JassPlayer p2 = team.getPlayers().get(1);
+
 		if((p1==lastWinner)||(p2==lastWinner)){
 			score+=5;
 		}
@@ -51,19 +55,40 @@ public class JassScoreKeeper {
 		return score;
 	}
 
-	public String getGameScoreAsString(JassTable table) {
-		
-		String score = "";
-		
-		ArrayList<JassPlayer> players=table.getPlayers();
-		
-		int scoreT1=getTeamScore(players.get(0),players.get(2));
-		int scoreT2=getTeamScore(players.get(1),players.get(3));
-				
-		score += "Team 1:("+players.get(0)+", "+players.get(2)+") score="+scoreT1;
-		score += " Team 2:("+players.get(1)+", "+players.get(3)+") score="+scoreT2;
-		
-		return score;
+	public JassGameResult getGameScoreAsString(JassTable table) {
+
+		JassGameResult result = new JassGameResult(table.getTeams());
+
+		return result;
 	}
-	
+
+	public class JassGameResult {
+
+		private Map<JassTable.JassTeam,Integer> score;
+
+		public JassGameResult( List<JassTable.JassTeam> teams){
+
+			this.score = new HashMap<>();
+
+			score.put(teams.get(0),getTeamScore(teams.get(0)));
+			score.put(teams.get(1),getTeamScore(teams.get(1)));
+		}
+
+		public Map<JassTable.JassTeam,Integer> getScores() {
+			return score;
+		}
+
+		@Override
+		public String toString(){
+			StringBuilder s = new StringBuilder();
+
+			for(JassTable.JassTeam team:score.keySet()){
+				s.append(team+" "+ score.get(team) +" Points");
+			}
+
+			return s.toString();
+		}
+	}
+
+
 }
