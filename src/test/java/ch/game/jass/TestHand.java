@@ -26,7 +26,11 @@ public class TestHand {
 			JassCard c= new JassCard(0,0);
 			jassHand.addCards(c);
 		}
-		System.out.println(jassHand);
+
+		if(Jass.isVerbose()) {
+			System.out.println(jassHand);
+		}
+
 		try{
 			jassHand.addCards(new JassCard(0,0));
 			fail(); // hand is full

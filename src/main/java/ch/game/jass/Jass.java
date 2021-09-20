@@ -11,6 +11,9 @@ import java.util.logging.Logger;
 
 public class Jass implements CardGame{
 
+
+	private static boolean verbose = false;
+
 	private static final int MAJOR_VERSION = 0;
 	private static final int MINOR_VERSION = 0;
 	private static final int PATCH_VERSION = 9;
@@ -21,9 +24,19 @@ public class Jass implements CardGame{
 	private static final String GAME_NAME = "Jass";
     
     private JassTable table;
-    
+
+	private JassScoreKeeper.JassGameResult result;
+
 	public Jass(){
 		LOGGER.log(Level.FINE, "New Jass game created.");
+	}
+
+	public static boolean isVerbose() {
+		return verbose;
+	}
+
+	public static void setVerbose(boolean verbose) {
+		Jass.verbose = verbose;
 	}
 
 	public void play() {
@@ -39,8 +52,10 @@ public class Jass implements CardGame{
 			mod.moderateRound(table);
 		}
 
-		System.out.println(keeper.getGameScoreAsString(table));
-
+		result = keeper.getGameScoreAsString(table);
+		if(Jass.isVerbose()) {
+			System.out.println(result);
+		}
 	}
 
 	@Override
@@ -59,8 +74,8 @@ public class Jass implements CardGame{
 		this.table=table;
 	}
 
-	
-	
 
-
+	public JassScoreKeeper.JassGameResult getResult() {
+		return result;
+	}
 }

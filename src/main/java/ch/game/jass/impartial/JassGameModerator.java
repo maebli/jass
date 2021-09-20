@@ -58,12 +58,15 @@ public class JassGameModerator{
 		if(nextPlayer.decidedToChooseGameMode()) {
 			table.setGameMode( nextPlayer.chooseGameMode());
 		}else{
-			System.out.println(nextPlayer + " chooses to let his partner choose the game mode ");
+			if(Jass.isVerbose()) {
+				System.out.println(nextPlayer + " chooses to let his partner choose the game mode ");
+			}
 			nextPlayer=table.getPlayers().get((table.getPlayers().indexOf(nextPlayer)+2)%3);
 			table.setGameMode(nextPlayer.chooseGameMode());
 		}
-
-		System.out.println(nextPlayer + " chooses mode " + JassTable.getGameModeAsString(table.getGameMode()));
+		if(Jass.isVerbose()) {
+			System.out.println(nextPlayer + " chooses mode " + JassTable.getGameModeAsString(table.getGameMode()));
+		}
 	}
 
 
@@ -81,7 +84,9 @@ public class JassGameModerator{
 			
 			if(JassUmpire.abidesByTheRules(nextMove,table.getGameMode())){
 				table.playCardToTrick(card);
-				System.out.println(player+" played "+card+" to trick.");
+				if(Jass.isVerbose()) {
+					System.out.println(player + " played " + card + " to trick.");
+				}
 			}else{
 				System.err.println("Player "+player+"played"+
 						"illegal card to trick ");

@@ -1,6 +1,7 @@
 package ch.game.jass.impartial;
 
 
+import ch.game.jass.Jass;
 import ch.game.jass.JassCard;
 import ch.game.jass.JassTable;
 import ch.game.jass.JassTrick;
@@ -31,9 +32,10 @@ public class JassUmpire{
 		JassCard winningCard=trick.getWinningCard(mode);
 		int winningPlayerIndex=trick.get().indexOf(winningCard);
 		JassPlayer winner = table.getPlayers(mod.getCurrentStartPlayer()).get(winningPlayerIndex);
-		
-		System.out.println(winningCard+" played by "+winner+" wins round.");
-		
+
+		if(Jass.isVerbose()) {
+			System.out.println(winningCard + " played by " + winner + " wins round.");
+		}
 		return winner;
 	}
 }
