@@ -6,7 +6,7 @@ import ch.game.jass.JassCard;
 import ch.game.jass.JassTable;
 import ch.game.jass.JassTrick;
 
-public interface JassPlayer {
+public interface JassPlayer extends JassTableViewer {
 
 	void dealCard(JassCard removeTopCard);
 	void assignName(String name);
@@ -15,6 +15,6 @@ public interface JassPlayer {
 	JassCard playCard(JassTrick trick);
 	JassTable.GameMode chooseGameMode();
 	boolean decidedToChooseGameMode();
-	void giveTableView(JassTableView tableview);
+	void setToTable(JassTableView tableview);
 	
 }

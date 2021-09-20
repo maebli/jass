@@ -53,7 +53,7 @@ public abstract class BasicJassPlayer implements JassPlayer {
 	public abstract JassTable.GameMode chooseGameMode();
 
 	@Override
-	public void giveTableView(JassTableView tableView){
+	public void setToTable(JassTableView tableView){
 		this.tableView = tableView;
 	}
 

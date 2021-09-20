@@ -46,4 +46,13 @@ public class StupidJassPlayer extends BasicJassPlayer {
 		return (Math.random()*2)>1;
 	}
 
+	@Override
+	public void reactToNewCardInTrick() {
+
+	}
+
+	@Override
+	public void reactToEndOfGame() {
+
+	}
 }

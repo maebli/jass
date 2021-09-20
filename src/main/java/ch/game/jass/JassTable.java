@@ -2,9 +2,9 @@ package ch.game.jass;
 
 
 import ch.game.jass.player.JassPlayer;
+import ch.game.jass.player.JassTableViewer;
 
 import java.util.ArrayList;
-import java.util.List;
 
 
 public class JassTable implements JassTableView {
@@ -23,6 +23,7 @@ public class JassTable implements JassTableView {
 	private static final int MAX_PLAYERS_AT_JASS_TABLE=4;
 
     private ArrayList<JassTeam> teams = new ArrayList<>();
+	private ArrayList<JassTableViewer> viewers = new ArrayList<>();
     
     private JassTrick trick=new JassTrick();
     
@@ -46,7 +47,8 @@ public class JassTable implements JassTableView {
     		System.exit(0);
     	}
 		for(JassPlayer player :players){
-			player.giveTableView(this);
+			player.setToTable(this);
+			subScribeToTableEvents(player);
 		}
     	teams.add(new JassTeam(players.get(0),players.get(2)));
 		teams.add(new JassTeam(players.get(1),players.get(3)));
@@ -80,7 +82,16 @@ public class JassTable implements JassTableView {
     
 
     public JassTrick playCardToTrick(JassCard card){
-    	trick.playCard(card);
+
+		trick.playCard(card);
+
+		for(JassTableViewer viewer:viewers){
+			viewer.reactToNewCardInTrick();
+			if(trick.size() == 4){
+				viewer.reactToEndOfGame();
+			}
+		}
+
     	return trick;
     }
     
@@ -118,6 +129,16 @@ public class JassTable implements JassTableView {
 	@Override
 	public JassTable.GameMode getGameMode() {
 		return gameMode;
+	}
+
+	@Override
+	public void subScribeToTableEvents(JassTableViewer viewer) {
+		viewers.add(viewer);
+	}
+
+	@Override
+	public JassTrick getCurrentTrick() {
+		return trick;
 	}
 
 	public static boolean isTrumpfGame(JassTable.GameMode mode){
