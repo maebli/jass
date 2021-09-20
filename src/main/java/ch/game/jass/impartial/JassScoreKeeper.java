@@ -78,6 +78,16 @@ public class JassScoreKeeper {
 			return score;
 		}
 
+		public void add(JassTable.JassTeam team, int score) {
+			this.score.replace(team,this.score.get(team)+score);
+		}
+
+		public void add(JassGameResult results) {
+			for(JassTable.JassTeam team:score.keySet()){
+				this.score.replace(team,score.get(team)+results.getScores().get(team));
+			}
+		}
+
 		@Override
 		public String toString(){
 			StringBuilder s = new StringBuilder();
@@ -87,6 +97,17 @@ public class JassScoreKeeper {
 			}
 
 			return s.toString();
+		}
+
+		public float getWinLoseRatio(){
+
+			List<Float> i = new ArrayList();
+
+			for(JassTable.JassTeam team:score.keySet()){
+				i.add(Float.valueOf(score.get(team)));
+			}
+
+			return (i.get(0)/i.get(1));
 		}
 	}
 

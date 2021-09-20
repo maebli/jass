@@ -2,6 +2,7 @@ package ch.game.jass;
 
 import ch.game.cardgame.CardGameFactory;
 import ch.game.jass.exception.JassCardGameDoesNotExistException;
+import ch.game.jass.impartial.JassScoreKeeper;
 import ch.game.jass.player.JassPlayer;
 import ch.game.jass.player.JassPlayersBuilder;
 import org.junit.Before;
@@ -62,6 +63,35 @@ public class TestJass {
 	@Test
 	public void testName(){
 		assertEquals("Jass",new Jass().getName());
+	}
+
+
+	@Test
+	public void testDumbPlayers() throws JassCardGameDoesNotExistException {
+
+		Jass jass=(Jass) CardGameFactory.make("Jass");
+		ArrayList<JassPlayer> players = JassPlayersBuilder.build();
+		JassTable table = new JassTable(players);
+		jass.setPlayers(table);
+		JassScoreKeeper.JassGameResult result;
+
+		jass.play();
+		result=jass.getResult();
+
+		for(int i=0;i<50;i++){
+			jass.play();
+			result.add(jass.getResult());
+		}
+		if(Jass.isVerbose()) {
+			System.out.println(result);
+		}
+		float ratio=result.getWinLoseRatio();
+
+		if(Jass.isVerbose()) {
+			System.out.println(ratio);
+		}
+
+		assert(ratio <1.2 && ratio > 0.8);
 	}
 
 }
