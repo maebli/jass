@@ -35,10 +35,25 @@ public class Jass implements CardGame{
 		return verbose;
 	}
 
+	/**
+	 * The most important events are printed
+	 * using System.out if this is set to true.
+	 * @param verbose
+	 */
 	public static void setVerbose(boolean verbose) {
 		Jass.verbose = verbose;
 	}
 
+	/** This is the most important function
+	 *  before running play, you must setPlayers(..)
+	 *  This function creates a Moderator and and a
+	 *  ScoreKeepr internally and plays JASS_HAND_SIZE
+	 *  rounds of Jass until all players have played
+	 *  all of their cards.
+	 *
+	 *  Once this function is complete you may fetch
+	 *  the result using the function getResult()
+	 */
 	public void play() {
 
 		JassGameModerator mod = new JassGameModerator();
@@ -58,9 +73,10 @@ public class Jass implements CardGame{
 		}
 	}
 
+
 	@Override
 	public String getVersion() {
-		return "v"+MAJOR_VERSION+"."+MINOR_VERSION+"."+PATCH_VERSION;
+		return MAJOR_VERSION+"."+MINOR_VERSION+"."+PATCH_VERSION;
 	}
 
 	@Override
@@ -74,7 +90,12 @@ public class Jass implements CardGame{
 		this.table=table;
 	}
 
-
+	/**
+	 * Returns the Result of the last game. If play()
+	 * is called again the last round is overwritten
+	 * in the same JassGameResult instance.
+	 * @return
+	 */
 	public JassScoreKeeper.JassGameResult getResult() {
 		return result;
 	}
