@@ -60,4 +60,9 @@ public abstract class BasicJassPlayer implements JassPlayer {
 	public JassTableView getTableView() {
 		return tableView;
 	}
+
+	@Override
+	public String getName() {
+		return name;
+	}
 }

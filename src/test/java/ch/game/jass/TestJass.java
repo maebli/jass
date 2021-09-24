@@ -91,7 +91,7 @@ public class TestJass {
 			System.out.println(ratio);
 		}
 
-		assert(ratio <1.2 && ratio > 0.8);
+		assert(ratio <1.4 && ratio > 0.6);
 	}
 
 }

@@ -1,7 +1,7 @@
 
 #  <img src="./jass.png"  width="100" height="100" />  *lib*
 
-Version: 0.0.11
+Version: 0.0.12
 
 ## 🖊️ Todo
 

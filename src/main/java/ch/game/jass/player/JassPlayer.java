@@ -6,7 +6,7 @@ import ch.game.jass.JassCard;
 import ch.game.jass.JassTable;
 import ch.game.jass.JassTrick;
 
-public interface JassPlayer extends JassTableViewer {
+public interface JassPlayer extends JassTableViewer,Player {
 
 	void dealCard(final JassCard card);
 	void assignName(final String name);

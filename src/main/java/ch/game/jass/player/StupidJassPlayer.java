@@ -47,7 +47,7 @@ public class StupidJassPlayer extends BasicJassPlayer {
 	}
 
 	@Override
-	public void reactToNewCardInTrick(JassCard card) {
+	public void reactToNewCardInTrick(JassCard card, Player player) {
 
 	}
 

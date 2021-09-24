@@ -3,6 +3,7 @@ package ch.game.jass;
 
 import ch.game.jass.player.JassPlayer;
 import ch.game.jass.player.JassTableViewer;
+import ch.game.jass.player.Player;
 
 import java.util.ArrayList;
 
@@ -81,12 +82,12 @@ public class JassTable implements JassTableView {
     }
     
 
-    public JassTrick playCardToTrick(JassCard card){
+    public JassTrick playCardToTrick(JassCard card, Player player){
 
 		trick.playCard(card);
 
 		for(JassTableViewer viewer:viewers){
-			viewer.reactToNewCardInTrick(card);
+			viewer.reactToNewCardInTrick(card,player);
 			if(trick.size() == 4){
 				viewer.reactToEndOfGame();
 			}
