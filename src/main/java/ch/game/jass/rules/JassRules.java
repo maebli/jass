@@ -6,14 +6,7 @@ import java.util.Set;
 
 public class JassRules {
 
-	/*
-	 *  "Farben"
-	 *  
-	 *  Only for OBEN / UNTEN games at the moment
-	 *  
-	 */
-	
-	private static Set<JassRule> jassRules=new HashSet<JassRule>();
+	private static final Set<JassRule> jassRules=new HashSet<JassRule>();
 	
 	static{
 		jassRules.add(new CorrectSuitMustBePlayedRule());

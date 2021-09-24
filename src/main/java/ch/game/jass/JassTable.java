@@ -86,7 +86,7 @@ public class JassTable implements JassTableView {
 		trick.playCard(card);
 
 		for(JassTableViewer viewer:viewers){
-			viewer.reactToNewCardInTrick();
+			viewer.reactToNewCardInTrick(card);
 			if(trick.size() == 4){
 				viewer.reactToEndOfGame();
 			}

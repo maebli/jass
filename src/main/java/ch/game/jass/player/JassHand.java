@@ -74,4 +74,7 @@ public class JassHand{
 		return cards.stream();
 	}
 
+	public int size(){
+		return cards.size();
+	}
 }

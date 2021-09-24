@@ -14,6 +14,11 @@ public class JassUmpire{
 
 	public static boolean abidesByTheRules(JassMove nextMove, JassTable.GameMode mode) {
 		boolean moveAbidesByTheRules=true;
+
+		if(nextMove.getPlayersHand().size()<=1){
+			return true;
+		}
+
 		for (JassRule rule : JassRules.getRules()) {
             moveAbidesByTheRules &= rule.followsRule(nextMove,mode);
 		}

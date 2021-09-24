@@ -16,7 +16,7 @@ public class Jass implements CardGame{
 
 	private static final int MAJOR_VERSION = 0;
 	private static final int MINOR_VERSION = 0;
-	private static final int PATCH_VERSION = 10;
+	private static final int PATCH_VERSION = 11;
 
 
 	private static final Logger LOGGER = Logger.getLogger(Jass.class.getName());
@@ -40,7 +40,7 @@ public class Jass implements CardGame{
 	 * using System.out if this is set to true.
 	 * @param verbose
 	 */
-	public static void setVerbose(boolean verbose) {
+	public static void setVerbose(final boolean verbose) {
 		Jass.verbose = verbose;
 	}
 
@@ -86,7 +86,7 @@ public class Jass implements CardGame{
 
 
 	@Override
-	public void setPlayers(JassTable table) {
+	public void setPlayers(final JassTable table) {
 		this.table=table;
 	}
 

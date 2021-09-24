@@ -14,7 +14,7 @@ public class StupidJassPlayer extends BasicJassPlayer {
 	}
 
 	@Override
-	public JassCard playCard(JassTrick trick) {
+	public JassCard playCard(final JassTrick trick) {
 		JassHand hand=getHand();
 		JassMove move =new JassMove();
 		move.setTrick(trick);
@@ -47,7 +47,7 @@ public class StupidJassPlayer extends BasicJassPlayer {
 	}
 
 	@Override
-	public void reactToNewCardInTrick() {
+	public void reactToNewCardInTrick(JassCard card) {
 
 	}
 

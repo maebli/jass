@@ -26,7 +26,7 @@ public class JassCard implements Card,Comparable<JassCard>{
 		return false;
 	}
 
-	public void setTable(JassTable table) {
+	public void setTable(final JassTable table) {
 		this.table = table;
 	}
 
@@ -37,13 +37,13 @@ public class JassCard implements Card,Comparable<JassCard>{
         SCHILTEN
     }
     
-    private static Map<Integer,String> ranksNames;
-    private static Map<Integer,String> suitsNames;
-    private static Map<Integer,Integer> obenValues;
-    private static Map<Integer,Integer> untenValues;
-    private static Map<Integer,Integer> trumpfValues;
+    private static final Map<Integer,String> ranksNames;
+    private static final Map<Integer,String> suitsNames;
+    private static final Map<Integer,Integer> obenValues;
+    private static final Map<Integer,Integer> untenValues;
+    private static final Map<Integer,Integer> trumpfValues;
 
-	private static List<Integer> trumpfRanking;
+	private static final List<Integer> trumpfRanking;
 
     static{
     	Map<Integer,Integer> values=new HashMap<Integer,Integer>();

@@ -8,11 +8,11 @@ import ch.game.jass.JassTrick;
 
 public interface JassPlayer extends JassTableViewer {
 
-	void dealCard(JassCard removeTopCard);
-	void assignName(String name);
+	void dealCard(final JassCard card);
+	void assignName(final String name);
 	JassHand getHand();
-	boolean canPlaySuit(int suit);
-	JassCard playCard(JassTrick trick);
+	boolean canPlaySuit(final int suit);
+	JassCard playCard(final JassTrick trick);
 	JassTable.GameMode chooseGameMode();
 	boolean decidedToChooseGameMode();
 	void setToTable(JassTableView tableview);
