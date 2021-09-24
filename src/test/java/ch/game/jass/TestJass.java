@@ -26,7 +26,6 @@ public class TestJass {
 		LOGGER.fine("Setting up	 Jass Test");
 	}
 
-
 	
 	@Test
 	public void testPlay() throws JassCardGameDoesNotExistException {

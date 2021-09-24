@@ -83,7 +83,7 @@ public class JassGameModerator{
 			nextMove.setTrick(table.getTrick());
 			
 			if(JassUmpire.abidesByTheRules(nextMove,table.getGameMode())){
-				table.playCardToTrick(card,nextPlayer);
+				table.playCardToTrick(card,player);
 				if(Jass.isVerbose()) {
 					System.out.println(player + " played " + card + " to trick.");
 				}
